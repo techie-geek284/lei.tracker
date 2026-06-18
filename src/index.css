@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-deep: #0f172a;
+  --bg-mid: #1e293b;
+  --bg-light: #334155;
+  --brand: #6366f1;
+  --brand-light: #818cf8;
+  --cyan: #06b6d4;
+  --gold: #f59e0b;
+  --emerald: #10b981;
+  --text: #f8fafc;
+  --text-muted: #94a3b8;
+}
+
+* {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #0f172a;
+  color: #f8fafc;
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+}
+
+/* Glass morphism utility */
+.glass {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+}
+
+/* Gradient text utility */
+.gradient-text {
+  background: linear-gradient(135deg, #6366f1, #06b6d4, #f59e0b);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% 200%;
+  animation: gradient 6s ease infinite;
+}
+
+/* Neon glow utilities */
+.glow-brand {
+  box-shadow: 0 0 40px rgba(99, 102, 241, 0.4);
+}
+.glow-cyan {
+  box-shadow: 0 0 40px rgba(6, 182, 212, 0.4);
+}
+
+/* Animated hero grid background */
+.hero-grid-bg {
+  background-image: linear-gradient(rgba(99, 102, 241, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(99, 102, 241, 0.1) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+/* Keyframe used by .gradient-text and Tailwind gradient animation */
+@keyframes gradient {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Infinite horizontal scroll — pure CSS marquee, no JS needed */
+.marquee-container {
+  overflow: hidden;
+  -webkit-mask: linear-gradient(90deg, transparent, white 15%, white 85%, transparent);
+  mask: linear-gradient(90deg, transparent, white 15%, white 85%, transparent);
+}
+.marquee-track {
+  display: flex;
+  gap: 24px;
+  width: max-content;
+}
+.marquee-track-1 {
+  animation: marquee-left 40s linear infinite;
+}
+.marquee-track-2 {
+  animation: marquee-right 40s linear infinite;
+}
+@keyframes marquee-left {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+@keyframes marquee-right {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+.marquee-container:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+/* Horizontal flowing lines for How It Works background */
+@keyframes flow-line {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 200px 0;
+  }
+}
+.flow-lines {
+  background-image: repeating-linear-gradient(
+    90deg,
+    transparent,
+    transparent 80px,
+    rgba(99, 102, 241, 0.08) 80px,
+    rgba(99, 102, 241, 0.08) 81px
+  );
+  animation: flow-line 8s linear infinite;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0f172a;
+}
+::-webkit-scrollbar-thumb {
+  background: #6366f1;
+  border-radius: 3px;
+}
