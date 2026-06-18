@@ -30,7 +30,8 @@ function Coin({ position, r, speed, phase }: CoinConfig) {
 
   return (
     <mesh ref={ref} position={position} rotation={[Math.PI / 2, 0, 0]}>
-      <cylinderGeometry args={[r, r, 0.03, 32]} />
+      {/* 32 → 12 segments: coins are small, 32 was invisible overkill */}
+      <cylinderGeometry args={[r, r, 0.03, 12]} />
       <meshStandardMaterial
         color="#f59e0b"
         metalness={0.9}

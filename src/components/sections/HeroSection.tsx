@@ -1,4 +1,4 @@
-import { Suspense, lazy, useEffect, useRef } from 'react'
+import { Suspense, lazy, useCallback, useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { ChevronDown, Play } from 'lucide-react'
 import { MagneticButton } from '../ui/MagneticButton'
@@ -8,19 +8,43 @@ const HeroCanvas = lazy(() => import('../three/HeroCanvas'))
 const ParticleField = lazy(() => import('../three/ParticleField'))
 
 export const HeroSection = () => {
-  const rootRef = useRef<HTMLDivElement>(null)
+  const rootRef  = useRef<HTMLDivElement>(null)
+  const tiltRef  = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      gsap.fromTo('.hero-badge', { y: -30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6 })
-      gsap.fromTo('.hero-line-1', { y: 80, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8, delay: 0.2 })
-      gsap.fromTo('.hero-line-2', { y: 80, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8, delay: 0.4 })
-      gsap.fromTo('.hero-line-3', { y: 80, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8, delay: 0.6 })
-      gsap.fromTo('.hero-sub', { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8, delay: 0.8 })
-      gsap.fromTo('.hero-ctas', { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8, delay: 1.0 })
-      gsap.fromTo('.hero-trust', { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6, delay: 1.2 })
+      gsap.fromTo('.hero-badge',  { y: -30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6 })
+      gsap.fromTo('.hero-line-1', { y: 80,  opacity: 0 }, { y: 0, opacity: 1, duration: 0.8, delay: 0.2 })
+      gsap.fromTo('.hero-line-2', { y: 80,  opacity: 0 }, { y: 0, opacity: 1, duration: 0.8, delay: 0.4 })
+      gsap.fromTo('.hero-line-3', { y: 80,  opacity: 0 }, { y: 0, opacity: 1, duration: 0.8, delay: 0.6 })
+      gsap.fromTo('.hero-sub',    { y: 40,  opacity: 0 }, { y: 0, opacity: 1, duration: 0.8, delay: 0.8 })
+      gsap.fromTo('.hero-ctas',   { y: 40,  opacity: 0 }, { y: 0, opacity: 1, duration: 0.8, delay: 1.0 })
+      gsap.fromTo('.hero-trust',  { y: 20,  opacity: 0 }, { y: 0, opacity: 1, duration: 0.6, delay: 1.2 })
     }, rootRef)
+
+    // Initialise perspective on the 3D tilt container
+    if (tiltRef.current) {
+      gsap.set(tiltRef.current, { transformPerspective: 1200 })
+    }
+
     return () => ctx.revert()
+  }, [])
+
+  // "Meta-3D" — the Three.js canvas itself tilts toward the cursor, layering
+  // CSS perspective on top of the in-scene Three.js rotation for extra depth.
+  const handleTiltMove = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
+    const el = tiltRef.current
+    if (!el) return
+    const rect = el.getBoundingClientRect()
+    const x = ((e.clientX - rect.left) / rect.width  - 0.5) * 2
+    const y = ((e.clientY - rect.top)  / rect.height - 0.5) * 2
+    gsap.to(el, { rotateY: x * 7, rotateX: -y * 5, duration: 0.5, ease: 'power2.out' })
+  }, [])
+
+  const handleTiltLeave = useCallback(() => {
+    const el = tiltRef.current
+    if (!el) return
+    gsap.to(el, { rotateX: 0, rotateY: 0, duration: 1.4, ease: 'elastic.out(1, 0.4)' })
   }, [])
 
   return (
@@ -38,7 +62,7 @@ export const HeroSection = () => {
       {/* Particle field background (sm and up) */}
       <div className="absolute inset-0 hidden sm:block">
         <Suspense fallback={null}>
-          <ParticleField count={1500} />
+          <ParticleField count={1000} />
         </Suspense>
       </div>
 
@@ -64,7 +88,7 @@ export const HeroSection = () => {
           <div className="hero-ctas mt-8 flex flex-wrap gap-4">
             <MagneticButton
               onClick={() => scrollToSection('cta')}
-              className="px-7 py-3.5 rounded-xl font-semibold text-white bg-gradient-to-r from-brand-500 to-brand-600 glow-brand hover:from-brand-400 hover:to-brand-500 transition-colors"
+              className="btn-pulse-ring px-7 py-3.5 rounded-xl font-semibold text-white bg-gradient-to-r from-brand-500 to-brand-600 glow-brand hover:from-brand-400 hover:to-brand-500 transition-colors"
             >
               Start Free Trial
             </MagneticButton>
@@ -79,7 +103,13 @@ export const HeroSection = () => {
         </div>
 
         {/* Right: 3D canvas on desktop, static mock on tablet/mobile */}
-        <div className="relative h-[420px] sm:h-[520px] lg:h-[600px]">
+        <div
+          ref={tiltRef}
+          className="relative h-[420px] sm:h-[520px] lg:h-[600px]"
+          onMouseMove={handleTiltMove}
+          onMouseLeave={handleTiltLeave}
+          style={{ transformStyle: 'preserve-3d' }}
+        >
           <div className="hidden lg:block absolute inset-0">
             <Suspense
               fallback={<div className="w-full h-full bg-brand-900/20 rounded-2xl animate-pulse" />}

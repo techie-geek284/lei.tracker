@@ -63,12 +63,14 @@ export const GlobeSection = () => (
         })}
       </div>
 
-      {/* 3D Globe */}
-      <div className="mt-12 h-[400px] w-full">
+      {/* 3D Globe — taller canvas so the Earth fills the view */}
+      <div className="mt-10 h-[520px] sm:h-[600px] w-full relative">
+        {/* Subtle vignette at the bottom so it blends into the next section */}
+        <div className="absolute bottom-0 inset-x-0 h-24 bg-gradient-to-t from-[#0a0f1e] to-transparent z-10 pointer-events-none" />
         <Suspense
           fallback={
             <div className="w-full h-full flex items-center justify-center">
-              <div className="w-64 h-64 rounded-full bg-brand-900/20 animate-pulse" />
+              <div className="w-64 h-64 rounded-full bg-brand-500/10 animate-pulse" />
             </div>
           }
         >

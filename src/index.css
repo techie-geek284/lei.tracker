@@ -140,3 +140,197 @@ body {
   background: #6366f1;
   border-radius: 3px;
 }
+
+/* =====================================================
+   NEW HIGH-IMPACT ANIMATIONS
+   ===================================================== */
+
+/* --- Shimmer sweep on glass cards ---
+   Apply .glass-shimmer alongside .glass to enable.
+   The highlight stripe sweeps left-to-right every 5 s. */
+.glass-shimmer {
+  position: relative;
+  overflow: hidden;
+}
+.glass-shimmer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -80%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    105deg,
+    transparent 20%,
+    rgba(255, 255, 255, 0.055) 50%,
+    transparent 80%
+  );
+  animation: shimmer-sweep 5s ease-in-out infinite;
+  pointer-events: none;
+  border-radius: inherit;
+  z-index: 1;
+}
+@keyframes shimmer-sweep {
+  0%   { left: -80%; }
+  100% { left: 160%; }
+}
+
+/* --- Pulsing ring on CTA buttons ---
+   Add .btn-pulse-ring to any button for an expanding ring. */
+.btn-pulse-ring {
+  position: relative;
+}
+.btn-pulse-ring::after {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  border-radius: inherit;
+  background: linear-gradient(135deg, #6366f1, #06b6d4);
+  opacity: 0;
+  animation: pulse-ring 2.5s ease-out infinite;
+  pointer-events: none;
+}
+@keyframes pulse-ring {
+  0%   { transform: scale(1);    opacity: 0.55; }
+  100% { transform: scale(1.35); opacity: 0;    }
+}
+
+/* --- Glow pulse border for "Most Popular" pricing card ---
+   Add .glow-pulse-border to the card element. */
+@keyframes glow-pulse {
+  0%, 100% { box-shadow: 0 0 30px rgba(99, 102, 241, 0.45), 0 0 0px rgba(6, 182, 212, 0); }
+  50%       { box-shadow: 0 0 70px rgba(99, 102, 241, 0.85), 0 0 30px rgba(6, 182, 212, 0.3); }
+}
+.glow-pulse-border {
+  animation: glow-pulse 3s ease-in-out infinite;
+}
+
+/* --- AI scan line ---
+   Place a .ai-scan-wrapper (position:relative overflow:hidden) around the
+   canvas or content block and add one <div className="ai-scan-line" /> inside. */
+.ai-scan-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+.ai-scan-line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    #06b6d4 20%,
+    #6366f1 50%,
+    #06b6d4 80%,
+    transparent 100%
+  );
+  animation: scan-line 4s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 10;
+}
+@keyframes scan-line {
+  0%   { top: 0%;    opacity: 0;   }
+  5%   { opacity: 0.7; }
+  95%  { opacity: 0.7; }
+  100% { top: 100%;  opacity: 0;   }
+}
+
+/* --- Animated gradient border on section dividers ---
+   Use <div className="gradient-divider" /> between sections. */
+.gradient-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #6366f1 25%, #06b6d4 50%, #f59e0b 75%, transparent);
+  background-size: 400% 100%;
+  animation: gradient-border-move 4s ease infinite;
+}
+@keyframes gradient-border-move {
+  0%, 100% { background-position: 0%   50%; }
+  50%       { background-position: 100% 50%; }
+}
+
+/* --- Stats counter shine ---
+   Wraps the number in a shimmering highlight on count completion.
+   Add .stat-shine to the counter wrapper. */
+.stat-shine {
+  position: relative;
+  display: inline-block;
+}
+.stat-shine::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.18) 50%,
+    transparent 70%
+  );
+  animation: stat-shine 3s ease-in-out infinite;
+  pointer-events: none;
+}
+@keyframes stat-shine {
+  0%   { transform: translateX(-120%); }
+  100% { transform: translateX(220%); }
+}
+
+/* --- 3D tilt card hover (CSS-only, no JS) ---
+   Add .tilt-hover to any card. Works via CSS perspective on parent. */
+.tilt-parent {
+  perspective: 1000px;
+}
+.tilt-hover {
+  transition: transform 0.4s ease;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+.tilt-hover:hover {
+  transform: rotateY(4deg) rotateX(-3deg) translateY(-6px) scale(1.02);
+}
+
+/* --- Floating orb background accent ---
+   Decorative pulsing orb, absolutely positioned. */
+.floating-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  animation: orb-float 8s ease-in-out infinite;
+  pointer-events: none;
+}
+@keyframes orb-float {
+  0%, 100% { transform: translate(0px,  0px)  scale(1);    opacity: 0.35; }
+  33%       { transform: translate(20px, -30px) scale(1.08); opacity: 0.5;  }
+  66%       { transform: translate(-15px, 20px) scale(0.94); opacity: 0.3;  }
+}
+
+/* --- Typewriter cursor blink ---
+   Add .typewriter-cursor after any text node to append a blinking cursor. */
+.typewriter-cursor::after {
+  content: '|';
+  margin-left: 2px;
+  color: #6366f1;
+  animation: cursor-blink 1s step-end infinite;
+}
+@keyframes cursor-blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+/* --- Clip-path reveal on scroll ---
+   Apply in JS: element.classList.add('reveal-active') when in view. */
+.reveal-clip {
+  clip-path: inset(0 0 100% 0);
+  transition: clip-path 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal-clip.reveal-active {
+  clip-path: inset(0 0 0% 0);
+}
+
+/* --- Neon text pulse (for badge labels / live indicators) --- */
+@keyframes neon-pulse {
+  0%, 100% { text-shadow: 0 0 8px rgba(6, 182, 212, 0.8),  0 0 16px rgba(6, 182, 212, 0.4); }
+  50%       { text-shadow: 0 0 16px rgba(6, 182, 212, 1.0), 0 0 40px rgba(6, 182, 212, 0.6); }
+}
+.neon-text {
+  animation: neon-pulse 2s ease-in-out infinite;
+}
