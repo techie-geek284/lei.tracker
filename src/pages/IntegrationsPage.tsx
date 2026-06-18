@@ -1,9 +1,9 @@
-import { motion } from 'framer-motion';
+﻿import { motion } from 'framer-motion';
 import { Search, ArrowRight, Code2, Webhook, Puzzle, Globe } from 'lucide-react';
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
 };
 
 const stagger = {
@@ -26,61 +26,61 @@ interface Category {
 const categories: Category[] = [
   {
     label: 'Banking & Account Aggregator',
-    icon: '🏦',
+    icon: 'ðŸ¦',
     items: [
-      { name: 'HDFC Bank', icon: '🔵', status: 'live', description: 'Full AA + direct savings/current sync' },
-      { name: 'ICICI Bank', icon: '🟠', status: 'live', description: 'iMobile integration, AA-enabled' },
-      { name: 'State Bank of India', icon: '🔵', status: 'live', description: 'YONO linked, AA-enabled' },
-      { name: 'Kotak Mahindra', icon: '🔴', status: 'live', description: '811 & corporate accounts' },
-      { name: 'Axis Bank', icon: '🟣', status: 'live', description: 'Open Banking API v2' },
-      { name: 'Yes Bank', icon: '🟢', status: 'beta', description: 'AA framework, beta access' },
+      { name: 'HDFC Bank', icon: 'ðŸ”µ', status: 'live', description: 'Full AA + direct savings/current sync' },
+      { name: 'ICICI Bank', icon: 'ðŸŸ ', status: 'live', description: 'iMobile integration, AA-enabled' },
+      { name: 'State Bank of India', icon: 'ðŸ”µ', status: 'live', description: 'YONO linked, AA-enabled' },
+      { name: 'Kotak Mahindra', icon: 'ðŸ”´', status: 'live', description: '811 & corporate accounts' },
+      { name: 'Axis Bank', icon: 'ðŸŸ£', status: 'live', description: 'Open Banking API v2' },
+      { name: 'Yes Bank', icon: 'ðŸŸ¢', status: 'beta', description: 'AA framework, beta access' },
     ],
   },
   {
     label: 'Accounting & Bookkeeping',
-    icon: '📒',
+    icon: 'ðŸ“’',
     items: [
-      { name: 'Tally Prime', icon: '🟩', status: 'live', description: 'Two-way sync via TDL bridge' },
-      { name: 'Zoho Books', icon: '🔶', status: 'live', description: 'Full GL, invoices & reports' },
-      { name: 'QuickBooks', icon: '🟢', status: 'live', description: 'Online & Desktop editions' },
-      { name: 'FreshBooks', icon: '🔵', status: 'live', description: 'Invoicing & expense sync' },
+      { name: 'Tally Prime', icon: 'ðŸŸ©', status: 'live', description: 'Two-way sync via TDL bridge' },
+      { name: 'Zoho Books', icon: 'ðŸ”¶', status: 'live', description: 'Full GL, invoices & reports' },
+      { name: 'QuickBooks', icon: 'ðŸŸ¢', status: 'live', description: 'Online & Desktop editions' },
+      { name: 'FreshBooks', icon: 'ðŸ”µ', status: 'live', description: 'Invoicing & expense sync' },
     ],
   },
   {
     label: 'Investments & Brokers',
-    icon: '📈',
+    icon: 'ðŸ“ˆ',
     items: [
-      { name: 'Zerodha Kite', icon: '🔵', status: 'live', description: 'Portfolio sync via Kite Connect' },
-      { name: 'Groww', icon: '🟢', status: 'live', description: 'MF, stocks & P&L sync' },
-      { name: 'Angel One', icon: '🟠', status: 'live', description: 'SmartAPI integration' },
-      { name: 'HDFC Securities', icon: '🔵', status: 'beta', description: 'Demat + MF portfolio' },
+      { name: 'Zerodha Kite', icon: 'ðŸ”µ', status: 'live', description: 'Portfolio sync via Kite Connect' },
+      { name: 'Groww', icon: 'ðŸŸ¢', status: 'live', description: 'MF, stocks & P&L sync' },
+      { name: 'Angel One', icon: 'ðŸŸ ', status: 'live', description: 'SmartAPI integration' },
+      { name: 'HDFC Securities', icon: 'ðŸ”µ', status: 'beta', description: 'Demat + MF portfolio' },
     ],
   },
   {
     label: 'ERPs & Enterprise',
-    icon: '🏗️',
+    icon: 'ðŸ—ï¸',
     items: [
-      { name: 'SAP S/4HANA', icon: '⬜', status: 'live', description: 'BAPI + REST OData v4' },
-      { name: 'Oracle NetSuite', icon: '🔴', status: 'live', description: 'SuiteScript + REST integration' },
-      { name: 'Microsoft Dynamics', icon: '🔵', status: 'beta', description: 'Finance & Operations module' },
+      { name: 'SAP S/4HANA', icon: 'â¬œ', status: 'live', description: 'BAPI + REST OData v4' },
+      { name: 'Oracle NetSuite', icon: 'ðŸ”´', status: 'live', description: 'SuiteScript + REST integration' },
+      { name: 'Microsoft Dynamics', icon: 'ðŸ”µ', status: 'beta', description: 'Finance & Operations module' },
     ],
   },
   {
     label: 'Communication & Collaboration',
-    icon: '💬',
+    icon: 'ðŸ’¬',
     items: [
-      { name: 'Slack', icon: '🟣', status: 'live', description: 'Alerts, digests & slash commands' },
-      { name: 'Microsoft Teams', icon: '🔵', status: 'live', description: 'Cards, notifications & bots' },
-      { name: 'Google Workspace', icon: '🔴', status: 'live', description: 'Sheets export & Calendar reminders' },
+      { name: 'Slack', icon: 'ðŸŸ£', status: 'live', description: 'Alerts, digests & slash commands' },
+      { name: 'Microsoft Teams', icon: 'ðŸ”µ', status: 'live', description: 'Cards, notifications & bots' },
+      { name: 'Google Workspace', icon: 'ðŸ”´', status: 'live', description: 'Sheets export & Calendar reminders' },
     ],
   },
   {
     label: 'Payment Gateways',
-    icon: '💳',
+    icon: 'ðŸ’³',
     items: [
-      { name: 'Razorpay', icon: '🔵', status: 'live', description: 'Settlements, refunds & payouts' },
-      { name: 'PayU', icon: '🟠', status: 'live', description: 'Transaction reconciliation' },
-      { name: 'Cashfree', icon: '🟢', status: 'beta', description: 'Payout & subscription data' },
+      { name: 'Razorpay', icon: 'ðŸ”µ', status: 'live', description: 'Settlements, refunds & payouts' },
+      { name: 'PayU', icon: 'ðŸŸ ', status: 'live', description: 'Transaction reconciliation' },
+      { name: 'Cashfree', icon: 'ðŸŸ¢', status: 'beta', description: 'Payout & subscription data' },
     ],
   },
 ];
@@ -127,7 +127,7 @@ export const IntegrationsPage = () => {
             <span className="gradient-text">Everything You Use</span>
           </motion.h1>
           <motion.p variants={fadeUp} className="text-xl text-slate-400 max-w-2xl mx-auto leading-relaxed">
-            FinFlow plugs into your existing financial stack in minutes — no manual exports, no copy-paste, no stale data.
+            FinFlow plugs into your existing financial stack in minutes â€” no manual exports, no copy-paste, no stale data.
           </motion.p>
 
           {/* Search Bar (decorative) */}
@@ -137,7 +137,7 @@ export const IntegrationsPage = () => {
               <input
                 type="text"
                 readOnly
-                placeholder="Search integrations — e.g. Zerodha, Tally, Slack..."
+                placeholder="Search integrations â€” e.g. Zerodha, Tally, Slack..."
                 className="w-full pl-12 pr-4 py-4 bg-white/5 border border-white/10 rounded-xl text-slate-400 placeholder-slate-600 text-sm focus:outline-none focus:border-indigo-500/50 cursor-default"
               />
             </div>
@@ -210,17 +210,17 @@ export const IntegrationsPage = () => {
             <p className="pl-4 text-slate-300">"https://api.finflow.in/v1/transactions" \</p>
             <p className="pl-4"><span className="text-amber-400">-H</span> <span className="text-emerald-400">"Authorization: Bearer &lt;token&gt;"</span> \</p>
             <p className="pl-4"><span className="text-amber-400">-H</span> <span className="text-emerald-400">"Content-Type: application/json"</span> \</p>
-            <p className="pl-4"><span className="text-amber-400">-d</span> <span className="text-emerald-400">'\{'</span></p>
+            <p className="pl-4"><span className="text-amber-400">-d</span> <span className="text-emerald-400">{"'{"}</span></p>
             <p className="pl-8 text-emerald-400">"from": "2026-06-01",</p>
             <p className="pl-8 text-emerald-400">"to": "2026-06-17",</p>
             <p className="pl-8 text-emerald-400">"category": "food_dining",</p>
             <p className="pl-8 text-emerald-400">"limit": 50</p>
-            <p className="pl-4 text-emerald-400">'\}'</p>
+            <p className="pl-4 text-emerald-400">{"'}"}</p>
             <div className="mt-4 pt-4 border-t border-white/10">
               <p className="text-slate-600"># Response</p>
-              <p><span className="text-slate-400">\{'</span> <span className="text-cyan-400">"data"</span><span className="text-slate-400">:</span> <span className="text-slate-400">[...]</span><span className="text-slate-400">,</span></p>
-              <p className="pl-4"><span className="text-cyan-400">"meta"</span><span className="text-slate-400">:</span> <span className="text-slate-400">\{'</span> <span className="text-cyan-400">"total"</span><span className="text-slate-400">: 127 \}</span></p>
-              <p className="text-slate-400">\}</p>
+              <p><span className="text-slate-400">{"{"}</span> <span className="text-cyan-400">"data"</span><span className="text-slate-400">:</span> <span className="text-slate-400">[...]</span><span className="text-slate-400">,</span></p>
+              <p className="pl-4"><span className="text-cyan-400">"meta"</span><span className="text-slate-400">:</span> <span className="text-slate-400">{"{ "}</span><span className="text-cyan-400">"total"</span><span className="text-slate-400">{": 127 }"}</span></p>
+              <p className="text-slate-400">{"}"}</p>
             </div>
           </div>
         </motion.div>

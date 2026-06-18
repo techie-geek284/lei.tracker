@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+﻿import { motion } from 'framer-motion';
 import { TrendingUp, Wifi, BookOpen, Shield, MapPin, Clock, ArrowRight, Quote, Briefcase } from 'lucide-react';
 
 const fadeUp = {
@@ -6,14 +6,14 @@ const fadeUp = {
   visible: (i: number = 0) => ({
     opacity: 1,
     y: 0,
-    transition: { duration: 0.6, delay: i * 0.1, ease: [0.25, 0.46, 0.45, 0.94] },
+    transition: { duration: 0.6, delay: i * 0.1 },
   }),
 };
 
 const perks = [
   { icon: TrendingUp, title: 'Competitive Salary + ESOPs', desc: 'Top-of-market cash comp plus meaningful equity. We want every team member to own a piece of what we build.', color: 'text-[#10b981]', bg: 'bg-[#10b981]/10' },
   { icon: Wifi, title: 'Remote-First, Async Culture', desc: 'Work from anywhere in India. We optimise for output, not office presence. Quarterly all-hands in Bangalore.', color: 'text-[#06b6d4]', bg: 'bg-[#06b6d4]/10' },
-  { icon: BookOpen, title: '₹1L/Year Learning Budget', desc: 'Spend it on courses, books, conferences, or certifications. We invest in your growth without gatekeeping.', color: 'text-[#f59e0b]', bg: 'bg-[#f59e0b]/10' },
+  { icon: BookOpen, title: 'â‚¹1L/Year Learning Budget', desc: 'Spend it on courses, books, conferences, or certifications. We invest in your growth without gatekeeping.', color: 'text-[#f59e0b]', bg: 'bg-[#f59e0b]/10' },
   { icon: Shield, title: 'Family Health Insurance', desc: 'Comprehensive health cover for you, your spouse, children, and parents. Because family matters.', color: 'text-[#6366f1]', bg: 'bg-[#6366f1]/10' },
 ];
 
@@ -38,7 +38,7 @@ const departments: Department[] = [
     textColor: 'text-[#06b6d4]',
     roles: [
       { title: 'Senior Full-Stack Engineer', location: 'Bangalore / Remote', type: 'Full-time', desc: 'Own end-to-end features across our React frontend and Node.js backend. You\'ll work with TypeScript, PostgreSQL, and a microservices architecture serving 25,000+ users.' },
-      { title: 'ML Engineer – NLP & Categorisation', location: 'Remote', type: 'Full-time', desc: 'Train and deploy models that categorise Indian transactions with >98% accuracy. You\'ll work with transformer models, Indian financial data, and our real-time inference pipeline.' },
+      { title: 'ML Engineer â€“ NLP & Categorisation', location: 'Remote', type: 'Full-time', desc: 'Train and deploy models that categorise Indian transactions with >98% accuracy. You\'ll work with transformer models, Indian financial data, and our real-time inference pipeline.' },
       { title: 'DevOps / SRE', location: 'Bangalore / Remote', type: 'Full-time', desc: 'Own our AWS infrastructure, CI/CD pipelines, and SLOs. We run Kubernetes, Terraform, and aim for 99.99% uptime for a financial platform where downtime costs real money.' },
       { title: 'Mobile Engineer (React Native)', location: 'Remote', type: 'Full-time', desc: 'Build the FinFlow consumer app used by 20,000+ individuals. You\'ll own cross-platform features, performance, and our biometric authentication flows.' },
     ],
@@ -48,7 +48,7 @@ const departments: Department[] = [
     color: 'bg-[#6366f1]/10',
     textColor: 'text-[#6366f1]',
     roles: [
-      { title: 'Product Manager – Payments & Banking', location: 'Bangalore', type: 'Full-time', desc: 'Own our banking integrations, UPI flows, and Account Aggregator product surface. You\'ll work directly with the CTO and talk to CFOs weekly.' },
+      { title: 'Product Manager â€“ Payments & Banking', location: 'Bangalore', type: 'Full-time', desc: 'Own our banking integrations, UPI flows, and Account Aggregator product surface. You\'ll work directly with the CTO and talk to CFOs weekly.' },
       { title: 'Senior UX Designer', location: 'Bangalore / Remote', type: 'Full-time', desc: 'Design complex financial interfaces that feel effortless. You\'ll own our design system, run user research, and raise the quality bar across every touchpoint.' },
     ],
   },
@@ -57,8 +57,8 @@ const departments: Department[] = [
     color: 'bg-[#f59e0b]/10',
     textColor: 'text-[#f59e0b]',
     roles: [
-      { title: 'Enterprise Account Executive', location: 'Bangalore', type: 'Full-time', desc: 'Close deals with CFOs and finance teams at 200–2,000 person companies. You\'ll own a ₹5Cr+ annual quota and build long-term relationships with India\'s fastest-growing businesses.' },
-      { title: 'Growth Marketer', location: 'Remote', type: 'Full-time', desc: 'Own paid acquisition, SEO, and lifecycle marketing. You\'ll run experiments end-to-end — from creative to attribution — and be accountable to CAC and activation targets.' },
+      { title: 'Enterprise Account Executive', location: 'Bangalore', type: 'Full-time', desc: 'Close deals with CFOs and finance teams at 200â€“2,000 person companies. You\'ll own a â‚¹5Cr+ annual quota and build long-term relationships with India\'s fastest-growing businesses.' },
+      { title: 'Growth Marketer', location: 'Remote', type: 'Full-time', desc: 'Own paid acquisition, SEO, and lifecycle marketing. You\'ll run experiments end-to-end â€” from creative to attribution â€” and be accountable to CAC and activation targets.' },
     ],
   },
   {
@@ -66,15 +66,15 @@ const departments: Department[] = [
     color: 'bg-[#10b981]/10',
     textColor: 'text-[#10b981]',
     roles: [
-      { title: 'Financial Controller', location: 'Bangalore', type: 'Full-time', desc: 'Own our financial reporting, compliance, and runway management as we head into Series B. You\'ll work alongside the CFO and external auditors on our ₹42Cr balance sheet.' },
+      { title: 'Financial Controller', location: 'Bangalore', type: 'Full-time', desc: 'Own our financial reporting, compliance, and runway management as we head into Series B. You\'ll work alongside the CFO and external auditors on our â‚¹42Cr balance sheet.' },
     ],
   },
 ];
 
 const testimonials = [
-  { name: 'Deepika Iyer', role: 'Senior Engineer', quote: 'I\'ve never shipped so much so fast. The autonomy here is real — I own features end-to-end with zero bureaucracy. And the async culture means I can do my best work from Coimbatore.' },
+  { name: 'Deepika Iyer', role: 'Senior Engineer', quote: 'I\'ve never shipped so much so fast. The autonomy here is real â€” I own features end-to-end with zero bureaucracy. And the async culture means I can do my best work from Coimbatore.' },
   { name: 'Kartik Bose', role: 'Product Manager', quote: 'At FinFlow, I talk to real CFOs every week and see my decisions ship in days. It\'s the closest thing to running your own company without the stress of fundraising.' },
-  { name: 'Meghna Pillai', role: 'ML Engineer', quote: 'The learning budget is real — I used mine to attend NeurIPS last year. The team actually celebrates when you go deep on a technology that might not pay off for a year.' },
+  { name: 'Meghna Pillai', role: 'ML Engineer', quote: 'The learning budget is real â€” I used mine to attend NeurIPS last year. The team actually celebrates when you go deep on a technology that might not pay off for a year.' },
 ];
 
 export const CareersPage = () => {

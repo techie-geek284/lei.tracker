@@ -57,16 +57,6 @@ export const Navbar = () => {
     }
   }
 
-  const handleNavLink = (link: typeof NAV_LINKS[0]) => {
-    setMobileOpen(false)
-    // If it links to a hash on home, use scroll
-    if (link.to.startsWith('/#')) {
-      const id = link.to.slice(2)
-      handleNav(id)
-    }
-    // Otherwise let Link handle it
-  }
-
   return (
     <header
       className={`fixed top-0 w-full z-50 transition-all duration-500 ${

@@ -1,10 +1,10 @@
-import { useState } from 'react';
+﻿import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Bell, ArrowRight, Sparkles, Zap, Wrench, Star } from 'lucide-react';
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
 };
 
 type TagType = 'New' | 'Improved' | 'Fixed';
@@ -44,12 +44,12 @@ const releases: Release[] = [
     highlight: true,
     changes: [
       { tag: 'New', text: 'AI Goal Coaching v2: conversational goal setting with natural language input' },
-      { tag: 'New', text: 'Monte Carlo simulations improved — now runs 10,000 scenarios (up from 1,000), delivering 40% tighter confidence intervals' },
+      { tag: 'New', text: 'Monte Carlo simulations improved â€” now runs 10,000 scenarios (up from 1,000), delivering 40% tighter confidence intervals' },
       { tag: 'New', text: 'Family plan multi-goal sync: spouse and dependents can now share goals with configurable contribution splits' },
       { tag: 'New', text: 'Goal collision detection: AI warns when two goals compete for the same monthly surplus' },
       { tag: 'Improved', text: 'SIP recommendation engine now accounts for direct vs. regular plan expense ratios automatically' },
       { tag: 'Improved', text: 'Goal dashboard redesigned with timeline view and milestone markers' },
-      { tag: 'Fixed', text: 'Goal progress calculation incorrect after mid-month lump sum deposits — now resolved' },
+      { tag: 'Fixed', text: 'Goal progress calculation incorrect after mid-month lump sum deposits â€” now resolved' },
       { tag: 'Fixed', text: 'Notification duplication bug in Family plan when both accounts receive the same alert' },
     ],
   },
@@ -59,13 +59,13 @@ const releases: Release[] = [
     title: 'Tally Integration GA & Bulk Import',
     summary: 'Tally Prime integration is now generally available, along with long-requested bulk expense import and export capabilities.',
     changes: [
-      { tag: 'New', text: 'Tally Prime integration now generally available — two-way sync of ledgers, vouchers, and expenses' },
+      { tag: 'New', text: 'Tally Prime integration now generally available â€” two-way sync of ledgers, vouchers, and expenses' },
       { tag: 'New', text: 'Bulk expense import: upload CSV or Excel files with up to 10,000 rows, AI auto-categorises each row' },
       { tag: 'New', text: 'CSV and Excel export for transactions, expense reports, and capital gains summary' },
       { tag: 'New', text: 'Smart deduplication: auto-detects and merges duplicate transactions from bank feeds and manual imports' },
       { tag: 'Improved', text: 'Import history screen with row-level error reporting and partial success handling' },
-      { tag: 'Improved', text: 'Tally sync speed improved by 3× — initial sync now completes in under 45 seconds for most accounts' },
-      { tag: 'Fixed', text: 'CSV export included BOM character causing Excel rendering issues on Windows — fixed' },
+      { tag: 'Improved', text: 'Tally sync speed improved by 3Ã— â€” initial sync now completes in under 45 seconds for most accounts' },
+      { tag: 'Fixed', text: 'CSV export included BOM character causing Excel rendering issues on Windows â€” fixed' },
     ],
   },
   {
@@ -80,7 +80,7 @@ const releases: Release[] = [
       { tag: 'New', text: 'ELSS lock-in tracker: view lock-in expiry dates per SIP tranche for 80C planning' },
       { tag: 'Improved', text: 'Portfolio page loads 60% faster due to client-side caching of static fund data' },
       { tag: 'Improved', text: 'Mutual fund search now returns results in under 100ms with fuzzy matching' },
-      { tag: 'Fixed', text: 'Incorrect unrealised gain displayed for funds with dividend reinvestment option — resolved' },
+      { tag: 'Fixed', text: 'Incorrect unrealised gain displayed for funds with dividend reinvestment option â€” resolved' },
     ],
   },
   {
@@ -89,29 +89,29 @@ const releases: Release[] = [
     title: 'Account Aggregator v2 & 47 New Banks',
     summary: 'Full support for RBI Account Aggregator Framework v2.0 with dramatically expanded bank coverage and real-time sync.',
     changes: [
-      { tag: 'New', text: 'Account Aggregator Framework v2.0 support — consent flows are now faster and bank-branded' },
+      { tag: 'New', text: 'Account Aggregator Framework v2.0 support â€” consent flows are now faster and bank-branded' },
       { tag: 'New', text: '47 new bank connections added including regional co-operative banks and small finance banks' },
-      { tag: 'New', text: 'Real-time sync via webhook push from AA-enabled banks — balances update within 30 seconds of a transaction' },
+      { tag: 'New', text: 'Real-time sync via webhook push from AA-enabled banks â€” balances update within 30 seconds of a transaction' },
       { tag: 'New', text: 'Consent management centre: view, modify, and revoke all active data-sharing consents in one place' },
-      { tag: 'Improved', text: 'Bank connection reliability improved — retry logic now handles AA gateway timeouts gracefully' },
-      { tag: 'Improved', text: 'Transaction deduplication across AA and direct feeds improved — zero duplicate rate in 98.7% of cases' },
-      { tag: 'Fixed', text: 'Some ICICI Bank IMPS transactions were being classified as NEFT — fixed via MCC enrichment' },
+      { tag: 'Improved', text: 'Bank connection reliability improved â€” retry logic now handles AA gateway timeouts gracefully' },
+      { tag: 'Improved', text: 'Transaction deduplication across AA and direct feeds improved â€” zero duplicate rate in 98.7% of cases' },
+      { tag: 'Fixed', text: 'Some ICICI Bank IMPS transactions were being classified as NEFT â€” fixed via MCC enrichment' },
     ],
   },
   {
     version: 'v2.0.0',
     date: 'February 2026',
-    title: 'FinFlow 2.0 — The Big Redesign',
-    summary: 'A complete reimagining of the FinFlow experience. New design system, new AI engine, 5× performance improvements across the board.',
+    title: 'FinFlow 2.0 â€” The Big Redesign',
+    summary: 'A complete reimagining of the FinFlow experience. New design system, new AI engine, 5Ã— performance improvements across the board.',
     highlight: true,
     changes: [
       { tag: 'New', text: 'All-new design system: glass morphism UI, dark-first, responsive across mobile, tablet, and desktop' },
-      { tag: 'New', text: 'New AI engine (Finley v2): 40% better categorisation accuracy, 3× more insights per day' },
-      { tag: 'Improved', text: 'Dashboard renders in under 1 second (down from 5.2 seconds) — 5× performance improvement' },
-      { tag: 'New', text: 'Unified command palette: search transactions, insights, and settings from anywhere with ⌘K' },
-      { tag: 'New', text: 'iOS and Android apps rebuilt from scratch in React Native — feature parity with web' },
+      { tag: 'New', text: 'New AI engine (Finley v2): 40% better categorisation accuracy, 3Ã— more insights per day' },
+      { tag: 'Improved', text: 'Dashboard renders in under 1 second (down from 5.2 seconds) â€” 5Ã— performance improvement' },
+      { tag: 'New', text: 'Unified command palette: search transactions, insights, and settings from anywhere with âŒ˜K' },
+      { tag: 'New', text: 'iOS and Android apps rebuilt from scratch in React Native â€” feature parity with web' },
       { tag: 'New', text: 'Dark mode is now the default; light mode available in appearance settings' },
-      { tag: 'Improved', text: 'Onboarding flow reduced from 14 steps to 4 steps — median time-to-value cut from 12 minutes to 2 minutes' },
+      { tag: 'Improved', text: 'Onboarding flow reduced from 14 steps to 4 steps â€” median time-to-value cut from 12 minutes to 2 minutes' },
       { tag: 'Fixed', text: 'Resolved 140+ issues migrated from v1.x backlog during full architecture rewrite' },
     ],
   },
@@ -119,19 +119,19 @@ const releases: Release[] = [
     version: 'v1.9.0',
     date: 'January 2026',
     title: 'Enterprise SSO, Custom Roles & Audit Logs',
-    summary: 'Enterprise-grade access control and compliance features — making FinFlow ready for CFOs, controllers, and finance teams.',
+    summary: 'Enterprise-grade access control and compliance features â€” making FinFlow ready for CFOs, controllers, and finance teams.',
     changes: [
       { tag: 'New', text: 'SSO/SAML 2.0 support: integrate with Okta, Azure AD, Google Workspace, and OneLogin' },
       { tag: 'New', text: 'Custom roles and permissions: define view-only, editor, and admin roles with field-level granularity' },
       { tag: 'New', text: 'Immutable audit log: every action in the system is timestamped and logged for compliance' },
       { tag: 'New', text: 'IP allowlisting and session timeout policies for enterprise security requirements' },
       { tag: 'Improved', text: 'User invitation flow supports bulk invite via CSV for onboarding large teams' },
-      { tag: 'Fixed', text: 'Session expiry was not propagating correctly to open browser tabs — fixed with BroadcastChannel' },
+      { tag: 'Fixed', text: 'Session expiry was not propagating correctly to open browser tabs â€” fixed with BroadcastChannel' },
     ],
   },
 ];
 
-const ReleaseCard = ({ release, index }: { release: Release; index: number }) => (
+const ReleaseCard = ({ release }: { release: Release }) => (
   <motion.div
     variants={fadeUp}
     initial="hidden"
@@ -196,7 +196,7 @@ export const ChangelogPage = () => {
             What's New in <span className="gradient-text">FinFlow</span>
           </motion.h1>
           <motion.p variants={fadeUp} className="text-xl text-slate-400 max-w-xl mx-auto leading-relaxed">
-            We ship improvements every week. Here's what we've been building — complete with the reasoning behind each decision.
+            We ship improvements every week. Here's what we've been building â€” complete with the reasoning behind each decision.
           </motion.p>
 
           {/* Subscribe */}
@@ -226,7 +226,7 @@ export const ChangelogPage = () => {
               {tag}
             </span>
           ))}
-          <span className="text-slate-500 text-xs flex items-center">← use these tags to filter by type</span>
+          <span className="text-slate-500 text-xs flex items-center">â† use these tags to filter by type</span>
         </div>
       </section>
 
@@ -237,7 +237,7 @@ export const ChangelogPage = () => {
           <div className="absolute left-[5px] md:left-[5px] top-0 bottom-0 w-px bg-gradient-to-b from-indigo-500/50 via-white/10 to-transparent" />
           <div className="space-y-10">
             {releases.map((release, i) => (
-              <ReleaseCard key={i} release={release} index={i} />
+              <ReleaseCard key={i} release={release} />
             ))}
           </div>
         </div>

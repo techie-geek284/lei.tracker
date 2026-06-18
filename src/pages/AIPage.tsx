@@ -1,4 +1,4 @@
-import { useState } from 'react';
+﻿import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   Brain,
@@ -17,7 +17,7 @@ import {
 
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' } },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
 };
 
 const stagger = {
@@ -39,7 +39,7 @@ const capabilities: Capability[] = [
     description:
       'Every transaction is classified in under 200ms using a fine-tuned model trained on 50M+ Indian transactions from UPI, NEFT, cards, and net banking.',
     howItWorks:
-      'We pass merchant name, MCC code, transaction amount, and time-of-day through a three-stage classifier: rule engine → ML model → LLM fallback. Confidence scores are shown next to each category so you always know how certain the AI is.',
+      'We pass merchant name, MCC code, transaction amount, and time-of-day through a three-stage classifier: rule engine â†’ ML model â†’ LLM fallback. Confidence scores are shown next to each category so you always know how certain the AI is.',
     accent: 'text-indigo-400 bg-indigo-500/10 border-indigo-500/20',
   },
   {
@@ -48,14 +48,14 @@ const capabilities: Capability[] = [
     description:
       'Know your account balance 30, 60, and 90 days ahead. FinFlow learns your income cadence, recurring bills, and variable spending patterns to generate accurate forecasts.',
     howItWorks:
-      'A time-series LSTM model trained on 24 months of your personal transaction history produces the forecast. Confidence intervals widen with horizon — we show you the range, not just a point estimate, so you can plan conservatively.',
+      'A time-series LSTM model trained on 24 months of your personal transaction history produces the forecast. Confidence intervals widen with horizon â€” we show you the range, not just a point estimate, so you can plan conservatively.',
     accent: 'text-cyan-400 bg-cyan-500/10 border-cyan-500/20',
   },
   {
     icon: <ShieldCheck className="w-6 h-6" />,
     title: 'Anomaly Detection',
     description:
-      "99.1% detection rate on unusual transactions — duplicate charges, unexpected merchant debits, and out-of-pattern spending flagged before you even open the app.",
+      "99.1% detection rate on unusual transactions â€” duplicate charges, unexpected merchant debits, and out-of-pattern spending flagged before you even open the app.",
     howItWorks:
       'Isolation Forest combined with peer-group comparison. Your spending is benchmarked against anonymised cohorts of similar income/age/city profiles. Deviations beyond 2.5 standard deviations trigger an alert, with natural-language explanation of why it looks unusual.',
     accent: 'text-emerald-400 bg-emerald-500/10 border-emerald-500/20',
@@ -64,7 +64,7 @@ const capabilities: Capability[] = [
     icon: <Zap className="w-6 h-6" />,
     title: 'Real-time Nudges',
     description:
-      'Context-aware micro-notifications delivered at the right moment — not a dump of weekly stats. Spend too much at restaurants on Tuesday? You\'ll hear about it Wednesday morning.',
+      'Context-aware micro-notifications delivered at the right moment â€” not a dump of weekly stats. Spend too much at restaurants on Tuesday? You\'ll hear about it Wednesday morning.',
     howItWorks:
       'A reinforcement learning agent optimises notification timing based on your engagement history. It learns when you\'re most likely to act on advice, and backs off when you\'re in a "do not disturb" pattern, reducing notification fatigue.',
     accent: 'text-amber-400 bg-amber-500/10 border-amber-500/20',
@@ -73,16 +73,16 @@ const capabilities: Capability[] = [
     icon: <Eye className="w-6 h-6" />,
     title: 'Goal Probability Modelling',
     description:
-      'Every goal you set comes with a Monte Carlo simulation — 10,000 scenarios run to give you a realistic probability of hitting your target corpus on time.',
+      'Every goal you set comes with a Monte Carlo simulation â€” 10,000 scenarios run to give you a realistic probability of hitting your target corpus on time.',
     howItWorks:
-      'Market return distributions are sampled from historical SEBI-registered MF data (2003–2025). Inflation, salary growth, and expected expenditure drift are parameterised per user profile. The simulation reruns every week as your financial state evolves.',
+      'Market return distributions are sampled from historical SEBI-registered MF data (2003â€“2025). Inflation, salary growth, and expected expenditure drift are parameterised per user profile. The simulation reruns every week as your financial state evolves.',
     accent: 'text-rose-400 bg-rose-500/10 border-rose-500/20',
   },
   {
     icon: <Bell className="w-6 h-6" />,
     title: 'Proactive Insight Engine',
     description:
-      'FinFlow doesn\'t wait for you to ask. It surfaces opportunities — tax-loss harvesting windows, SIP top-up suggestions, loan prepayment calculations — before the moment passes.',
+      'FinFlow doesn\'t wait for you to ask. It surfaces opportunities â€” tax-loss harvesting windows, SIP top-up suggestions, loan prepayment calculations â€” before the moment passes.',
     howItWorks:
       'A rules engine evaluates 140+ financial heuristics against your live data every night. Each triggered insight is ranked by estimated rupee impact, and only the top 3 are surfaced to prevent overwhelm. Each insight cites its data source.',
     accent: 'text-purple-400 bg-purple-500/10 border-purple-500/20',
@@ -120,7 +120,7 @@ const CapabilityCard = ({ cap }: { cap: Capability }) => {
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.3, ease: 'easeInOut' }}
+            transition={{ duration: 0.3 }}
             className="overflow-hidden"
           >
             <div className="pt-2 pb-1 border-t border-white/10">
@@ -150,14 +150,14 @@ export const AIPage = () => {
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-10%,rgba(99,102,241,0.15),transparent)] pointer-events-none" />
         <motion.div variants={stagger} initial="hidden" animate="visible" className="max-w-4xl mx-auto space-y-6 relative">
           <motion.div variants={fadeUp} className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-indigo-500/30 bg-indigo-500/10 text-indigo-300 text-sm font-semibold tracking-widest uppercase">
-            ✦ AI Engine
+            âœ¦ AI Engine
           </motion.div>
           <motion.h1 variants={fadeUp} className="text-5xl md:text-7xl font-bold leading-tight">
             The Brain Behind<br />
             <span className="gradient-text">Your Finances</span>
           </motion.h1>
           <motion.p variants={fadeUp} className="text-xl text-slate-400 max-w-2xl mx-auto leading-relaxed">
-            Our proprietary AI runs 24/7, making 10,000+ micro-decisions about your money every day — so you spend less time on spreadsheets and more time living.
+            Our proprietary AI runs 24/7, making 10,000+ micro-decisions about your money every day â€” so you spend less time on spreadsheets and more time living.
           </motion.p>
         </motion.div>
       </section>
@@ -220,17 +220,17 @@ export const AIPage = () => {
               Explainable AI
             </div>
             <h2 className="text-3xl font-bold">
-              AI You Can Trust — <span className="gradient-text">Because You Can Inspect It</span>
+              AI You Can Trust â€” <span className="gradient-text">Because You Can Inspect It</span>
             </h2>
             <p className="text-slate-400 leading-relaxed">
-              FinFlow is not a black box. Every AI recommendation comes with a plain-English explanation of the data inputs and logic used to reach it. You can always override, correct, and teach the AI — it learns from your feedback.
+              FinFlow is not a black box. Every AI recommendation comes with a plain-English explanation of the data inputs and logic used to reach it. You can always override, correct, and teach the AI â€” it learns from your feedback.
             </p>
             <ul className="space-y-3">
               {[
                 'Every categorisation shows a confidence score and reasoning',
                 'Insight cards cite the exact transactions or data points used',
                 'You can correct any AI decision; corrections improve future accuracy',
-                'No decisions are taken autonomously — AI recommends, you approve',
+                'No decisions are taken autonomously â€” AI recommends, you approve',
                 'Full audit log of all AI actions available in account settings',
               ].map((item, i) => (
                 <li key={i} className="flex items-start gap-3">
@@ -247,7 +247,7 @@ export const AIPage = () => {
               <div className="flex items-start justify-between">
                 <div>
                   <p className="text-white font-semibold text-sm">Transaction Categorised</p>
-                  <p className="text-slate-500 text-xs">Swiggy · ₹840 · 14 Jun 2026</p>
+                  <p className="text-slate-500 text-xs">Swiggy Â· â‚¹840 Â· 14 Jun 2026</p>
                 </div>
                 <span className="text-xs px-2 py-1 bg-indigo-500/20 text-indigo-400 rounded-full">Food & Dining</span>
               </div>
@@ -257,7 +257,7 @@ export const AIPage = () => {
               </div>
               <div className="flex items-center gap-3">
                 <button className="flex-1 py-2 bg-white/5 hover:bg-white/10 rounded-lg text-slate-400 text-xs transition-colors">
-                  Looks correct ✓
+                  Looks correct âœ“
                 </button>
                 <button className="flex-1 py-2 bg-white/5 hover:bg-white/10 rounded-lg text-slate-400 text-xs transition-colors">
                   Change category
@@ -268,10 +268,10 @@ export const AIPage = () => {
             <div className="bg-[#0f172a] rounded-2xl p-5 border border-emerald-500/20 space-y-3">
               <div className="flex items-center gap-2">
                 <Sparkles className="w-4 h-4 text-amber-400" />
-                <p className="text-white text-sm font-semibold">AI Insight · High Confidence</p>
+                <p className="text-white text-sm font-semibold">AI Insight Â· High Confidence</p>
               </div>
-              <p className="text-slate-300 text-sm">Your food delivery spend is <span className="text-amber-400 font-medium">₹4,200 above last month</span>. Based on your pattern, this is a temporary spike (Diwali period). No action needed.</p>
-              <p className="text-slate-500 text-xs">Based on: 14 food transactions · Peer cohort: ₹9,800 avg · Seasonal adjustment applied</p>
+              <p className="text-slate-300 text-sm">Your food delivery spend is <span className="text-amber-400 font-medium">â‚¹4,200 above last month</span>. Based on your pattern, this is a temporary spike (Diwali period). No action needed.</p>
+              <p className="text-slate-500 text-xs">Based on: 14 food transactions Â· Peer cohort: â‚¹9,800 avg Â· Seasonal adjustment applied</p>
             </div>
           </div>
         </motion.div>
@@ -293,11 +293,11 @@ export const AIPage = () => {
           />
           <motion.div variants={fadeUp} className="text-slate-600 flex flex-col items-center gap-1">
             <ArrowRightLeft className="w-6 h-6 text-indigo-400" />
-            <span className="text-xs text-slate-500">TLS 1.3 · AES-256</span>
+            <span className="text-xs text-slate-500">TLS 1.3 Â· AES-256</span>
           </motion.div>
           <FlowNode
             label="FinFlow AI"
-            sub="Categorise · Analyse · Predict"
+            sub="Categorise Â· Analyse Â· Predict"
             icon={<Brain className="w-8 h-8 text-indigo-400 mx-auto" />}
             color="border-indigo-500/30"
           />
@@ -307,7 +307,7 @@ export const AIPage = () => {
           </motion.div>
           <FlowNode
             label="Your Insights"
-            sub="Dashboard · Alerts · Reports"
+            sub="Dashboard Â· Alerts Â· Reports"
             icon={<Sparkles className="w-8 h-8 text-amber-400 mx-auto" />}
             color="border-amber-500/20"
           />
@@ -315,9 +315,9 @@ export const AIPage = () => {
 
         <motion.div variants={stagger} initial="hidden" whileInView="visible" viewport={{ once: true }} className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-4 max-w-3xl mx-auto">
           {[
-            { label: 'Data ingestion', detail: 'AA framework + direct bank connections', icon: '🔗' },
-            { label: 'Processing pipeline', detail: 'Classify → Enrich → Score → Summarise', icon: '⚙️' },
-            { label: 'Delivery layer', detail: 'Push notification → App → Email digest', icon: '📲' },
+            { label: 'Data ingestion', detail: 'AA framework + direct bank connections', icon: 'ðŸ”—' },
+            { label: 'Processing pipeline', detail: 'Classify â†’ Enrich â†’ Score â†’ Summarise', icon: 'âš™ï¸' },
+            { label: 'Delivery layer', detail: 'Push notification â†’ App â†’ Email digest', icon: 'ðŸ“²' },
           ].map((step, i) => (
             <motion.div key={i} variants={fadeUp} className="glass rounded-xl p-4 border border-white/5 text-center space-y-2">
               <span className="text-2xl">{step.icon}</span>

@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+﻿import { motion } from 'framer-motion';
 import {
   Receipt,
   Building2,
@@ -12,7 +12,7 @@ import {
 
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' } },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
 };
 
 const stagger = {
@@ -70,19 +70,19 @@ const FeatureSection = ({
   </motion.div>
 );
 
-// ── Mock UIs ──────────────────────────────────────────────────────────────────
+// â”€â”€ Mock UIs â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 const ExpenseMock = () => (
   <div className="glass rounded-2xl p-6 space-y-4">
     <div className="flex items-center justify-between mb-2">
       <span className="text-white font-semibold">This Month</span>
-      <span className="text-emerald-400 text-sm font-medium">↓ 12% vs last month</span>
+      <span className="text-emerald-400 text-sm font-medium">â†“ 12% vs last month</span>
     </div>
     {[
-      { cat: 'Food & Dining', amount: '₹14,230', pct: 72, color: 'bg-indigo-500' },
-      { cat: 'Transport', amount: '₹6,800', pct: 45, color: 'bg-cyan-500' },
-      { cat: 'Entertainment', amount: '₹3,500', pct: 28, color: 'bg-amber-500' },
-      { cat: 'Utilities', amount: '₹2,100', pct: 18, color: 'bg-emerald-500' },
+      { cat: 'Food & Dining', amount: 'â‚¹14,230', pct: 72, color: 'bg-indigo-500' },
+      { cat: 'Transport', amount: 'â‚¹6,800', pct: 45, color: 'bg-cyan-500' },
+      { cat: 'Entertainment', amount: 'â‚¹3,500', pct: 28, color: 'bg-amber-500' },
+      { cat: 'Utilities', amount: 'â‚¹2,100', pct: 18, color: 'bg-emerald-500' },
     ].map((r, i) => (
       <div key={i} className="space-y-1.5">
         <div className="flex justify-between text-sm">
@@ -113,12 +113,12 @@ const LoanMock = () => (
   <div className="glass rounded-2xl p-6 space-y-4">
     <div className="flex items-center justify-between">
       <span className="text-white font-semibold">Active Loans</span>
-      <span className="text-slate-400 text-sm">3 loans · ₹68.4L total</span>
+      <span className="text-slate-400 text-sm">3 loans Â· â‚¹68.4L total</span>
     </div>
     {[
-      { name: 'Home Loan · HDFC', emi: '₹42,500/mo', remaining: '₹54,20,000', progress: 28, badge: 'On Track' },
-      { name: 'Car Loan · Axis', emi: '₹12,800/mo', remaining: '₹8,40,000', progress: 65, badge: 'Ahead' },
-      { name: 'Personal · ICICI', emi: '₹6,200/mo', remaining: '₹5,80,000', progress: 42, badge: 'On Track' },
+      { name: 'Home Loan Â· HDFC', emi: 'â‚¹42,500/mo', remaining: 'â‚¹54,20,000', progress: 28, badge: 'On Track' },
+      { name: 'Car Loan Â· Axis', emi: 'â‚¹12,800/mo', remaining: 'â‚¹8,40,000', progress: 65, badge: 'Ahead' },
+      { name: 'Personal Â· ICICI', emi: 'â‚¹6,200/mo', remaining: 'â‚¹5,80,000', progress: 42, badge: 'On Track' },
     ].map((l, i) => (
       <div key={i} className="bg-white/5 rounded-xl p-4 space-y-2">
         <div className="flex justify-between items-start">
@@ -141,14 +141,14 @@ const AssetMock = () => (
   <div className="glass rounded-2xl p-6 space-y-4">
     <div className="flex justify-between items-center">
       <span className="text-white font-semibold">Net Worth</span>
-      <span className="text-2xl font-bold gradient-text">₹1.84 Cr</span>
+      <span className="text-2xl font-bold gradient-text">â‚¹1.84 Cr</span>
     </div>
     <div className="grid grid-cols-2 gap-3">
       {[
-        { label: 'Real Estate', value: '₹1.2 Cr', icon: '🏠', color: 'indigo' },
-        { label: 'Equity', value: '₹32.4L', icon: '📈', color: 'cyan' },
-        { label: 'Gold', value: '₹18.6L', icon: '🥇', color: 'amber' },
-        { label: 'Fixed Income', value: '₹12.8L', icon: '🏦', color: 'emerald' },
+        { label: 'Real Estate', value: 'â‚¹1.2 Cr', icon: 'ðŸ ', color: 'indigo' },
+        { label: 'Equity', value: 'â‚¹32.4L', icon: 'ðŸ“ˆ', color: 'cyan' },
+        { label: 'Gold', value: 'â‚¹18.6L', icon: 'ðŸ¥‡', color: 'amber' },
+        { label: 'Fixed Income', value: 'â‚¹12.8L', icon: 'ðŸ¦', color: 'emerald' },
       ].map((a, i) => (
         <div key={i} className="bg-white/5 rounded-xl p-3 space-y-1">
           <span className="text-xl">{a.icon}</span>
@@ -172,10 +172,10 @@ const PortfolioMock = () => (
     </div>
     <div className="space-y-3">
       {[
-        { name: 'Mirae Asset Large Cap', type: 'Equity MF', xirr: '+21.2%', value: '₹4.8L', trend: 'up' },
-        { name: 'HDFC Balanced Advantage', type: 'Hybrid MF', xirr: '+14.7%', value: '₹2.1L', trend: 'up' },
-        { name: 'Zerodha Nifty 50 ETF', type: 'ETF', xirr: '+16.3%', value: '₹1.6L', trend: 'up' },
-        { name: 'Sovereign Gold Bond', type: 'SGB', xirr: '+9.8%', value: '₹80K', trend: 'up' },
+        { name: 'Mirae Asset Large Cap', type: 'Equity MF', xirr: '+21.2%', value: 'â‚¹4.8L', trend: 'up' },
+        { name: 'HDFC Balanced Advantage', type: 'Hybrid MF', xirr: '+14.7%', value: 'â‚¹2.1L', trend: 'up' },
+        { name: 'Zerodha Nifty 50 ETF', type: 'ETF', xirr: '+16.3%', value: 'â‚¹1.6L', trend: 'up' },
+        { name: 'Sovereign Gold Bond', type: 'SGB', xirr: '+9.8%', value: 'â‚¹80K', trend: 'up' },
       ].map((p, i) => (
         <div key={i} className="flex items-center justify-between py-2 border-b border-white/5 last:border-0">
           <div>
@@ -196,15 +196,15 @@ const GoalMock = () => (
   <div className="glass rounded-2xl p-6 space-y-4">
     <span className="text-white font-semibold">Active Goals</span>
     {[
-      { name: 'Home Down Payment', target: '₹25L', saved: '₹14.2L', deadline: 'Mar 2027', pct: 57, on_track: true },
-      { name: "Child's Education", target: '₹50L', saved: '₹8.6L', deadline: 'Jun 2033', pct: 17, on_track: true },
-      { name: 'Early Retirement', target: '₹3 Cr', saved: '₹42L', deadline: 'Dec 2040', pct: 14, on_track: false },
+      { name: 'Home Down Payment', target: 'â‚¹25L', saved: 'â‚¹14.2L', deadline: 'Mar 2027', pct: 57, on_track: true },
+      { name: "Child's Education", target: 'â‚¹50L', saved: 'â‚¹8.6L', deadline: 'Jun 2033', pct: 17, on_track: true },
+      { name: 'Early Retirement', target: 'â‚¹3 Cr', saved: 'â‚¹42L', deadline: 'Dec 2040', pct: 14, on_track: false },
     ].map((g, i) => (
       <div key={i} className="bg-white/5 rounded-xl p-4 space-y-3">
         <div className="flex justify-between items-start">
           <div>
             <p className="text-white text-sm font-semibold">{g.name}</p>
-            <p className="text-slate-500 text-xs">Target: {g.target} · By {g.deadline}</p>
+            <p className="text-slate-500 text-xs">Target: {g.target} Â· By {g.deadline}</p>
           </div>
           <span className={`text-xs px-2 py-0.5 rounded-full ${g.on_track ? 'bg-emerald-500/20 text-emerald-400' : 'bg-amber-500/20 text-amber-400'}`}>{g.on_track ? 'On Track' : 'Needs Attention'}</span>
         </div>
@@ -222,16 +222,16 @@ const GoalMock = () => (
   </div>
 );
 
-// ── Page ──────────────────────────────────────────────────────────────────────
+// â”€â”€ Page â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 export const FeaturesPage = () => {
   const features = [
     {
       icon: <Receipt className="w-6 h-6 text-indigo-400" />,
-      badge: 'Module 01 · Expense Intelligence',
+      badge: 'Module 01 Â· Expense Intelligence',
       heading: 'Smart Expense Tracking',
       description:
-        'Stop manually categorising transactions. FinFlow's AI reads your bank feeds, SMS alerts, and email receipts to build a complete, real-time picture of where your money goes — automatically.',
+        "Stop manually categorising transactions. FinFlow's AI reads your bank feeds, SMS alerts, and email receipts to build a complete, real-time picture of where your money goes â€” automatically.",
       bullets: [
         'Automatic categorisation with 94%+ accuracy across 80+ categories',
         'Receipt scanning via camera or email forwarding',
@@ -245,7 +245,7 @@ export const FeaturesPage = () => {
     },
     {
       icon: <Building2 className="w-6 h-6 text-cyan-400" />,
-      badge: 'Module 02 · Debt Management',
+      badge: 'Module 02 Â· Debt Management',
       heading: 'Loan Command Centre',
       description:
         'Get complete visibility into every loan, EMI, and credit facility you hold across all lenders. FinFlow tracks repayment progress, interest paid vs. principal, and surfaces prepayment opportunities that save you lakhs.',
@@ -263,10 +263,10 @@ export const FeaturesPage = () => {
     },
     {
       icon: <Boxes className="w-6 h-6 text-amber-400" />,
-      badge: 'Module 03 · Wealth Registry',
+      badge: 'Module 03 Â· Wealth Registry',
       heading: 'Complete Asset Register',
       description:
-        'Every asset you own — property, vehicles, jewellery, art, domain names — in one valuation engine. FinFlow pulls live market prices where available and lets you manually update the rest, giving you an always-accurate net worth.',
+        'Every asset you own â€” property, vehicles, jewellery, art, domain names â€” in one valuation engine. FinFlow pulls live market prices where available and lets you manually update the rest, giving you an always-accurate net worth.',
       bullets: [
         'Real estate valuation with locality-level market data from PropTiger & 99acres',
         'Gold and silver tracking at live MCX spot prices',
@@ -280,10 +280,10 @@ export const FeaturesPage = () => {
     },
     {
       icon: <TrendingUp className="w-6 h-6 text-emerald-400" />,
-      badge: 'Module 04 · Investment Analytics',
+      badge: 'Module 04 Â· Investment Analytics',
       heading: 'Portfolio Intelligence',
       description:
-        'Connect your Zerodha, Groww, or CAMS account and get institutional-grade portfolio analytics in seconds. XIRR, alpha, beta, Sharpe ratio — FinFlow makes complex metrics understandable and actionable.',
+        'Connect your Zerodha, Groww, or CAMS account and get institutional-grade portfolio analytics in seconds. XIRR, alpha, beta, Sharpe ratio â€” FinFlow makes complex metrics understandable and actionable.',
       bullets: [
         'Consolidated portfolio across mutual funds, direct equity, ETFs, and SGBs',
         'True XIRR calculation accounting for all cash flows including SIPs',
@@ -298,10 +298,10 @@ export const FeaturesPage = () => {
     },
     {
       icon: <Target className="w-6 h-6 text-rose-400" />,
-      badge: 'Module 05 · Goal Planning',
+      badge: 'Module 05 Â· Goal Planning',
       heading: 'Goal Achievement Engine',
       description:
-        'Set a financial goal and FinFlow reverse-engineers the monthly savings required, recommends the right investment instruments, and monitors progress in real time — adjusting projections as markets and your income evolve.',
+        'Set a financial goal and FinFlow reverse-engineers the monthly savings required, recommends the right investment instruments, and monitors progress in real time â€” adjusting projections as markets and your income evolve.',
       bullets: [
         'Monte Carlo simulation for goal success probability modelling',
         'SIP amount calculator with inflation-adjusted target corpus',
@@ -331,7 +331,7 @@ export const FeaturesPage = () => {
             You'll Ever Need
           </motion.h1>
           <motion.p variants={fadeUp} className="text-xl text-slate-400 max-w-2xl mx-auto leading-relaxed">
-            FinFlow's five core modules work together as one unified AI platform — so your expense data informs your goals, and your portfolio feeds your net worth.
+            FinFlow's five core modules work together as one unified AI platform â€” so your expense data informs your goals, and your portfolio feeds your net worth.
           </motion.p>
         </motion.div>
 
@@ -367,7 +367,7 @@ export const FeaturesPage = () => {
               Book a Demo
             </button>
           </div>
-          <p className="text-sm text-slate-500">14-day free trial · No credit card required · Cancel anytime</p>
+          <p className="text-sm text-slate-500">14-day free trial Â· No credit card required Â· Cancel anytime</p>
         </motion.div>
       </section>
     </div>

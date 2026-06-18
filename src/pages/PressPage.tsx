@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+﻿import { motion } from 'framer-motion';
 import { ArrowRight, Award, Download, Mail, Phone, Newspaper } from 'lucide-react';
 
 const fadeUp = {
@@ -6,7 +6,7 @@ const fadeUp = {
   visible: (i: number = 0) => ({
     opacity: 1,
     y: 0,
-    transition: { duration: 0.6, delay: i * 0.1, ease: [0.25, 0.46, 0.45, 0.94] },
+    transition: { duration: 0.6, delay: i * 0.1 },
   }),
 };
 
@@ -22,7 +22,7 @@ const articles: Article[] = [
   {
     publication: 'Economic Times',
     pubStyle: 'bg-[#f59e0b]/15 text-[#f59e0b]',
-    headline: 'FinFlow raises ₹34Cr Series A to democratise financial planning',
+    headline: 'FinFlow raises â‚¹34Cr Series A to democratise financial planning',
     date: 'February 2024',
     excerpt: 'Sequoia India leads the round as FinFlow doubles down on its enterprise suite and AI-powered cash flow forecasting for Indian SMEs.',
   },
@@ -45,7 +45,7 @@ const articles: Article[] = [
     pubStyle: 'bg-[#06b6d4]/15 text-[#06b6d4]',
     headline: 'How FinFlow\'s AI catches billing errors before CFOs do',
     date: 'March 2024',
-    excerpt: 'FinFlow\'s anomaly detection engine flagged ₹2.3Cr in billing discrepancies across its enterprise customers in Q1 2024 alone — often before the finance team noticed.',
+    excerpt: 'FinFlow\'s anomaly detection engine flagged â‚¹2.3Cr in billing discrepancies across its enterprise customers in Q1 2024 alone â€” often before the finance team noticed.',
   },
   {
     publication: 'Business Standard',
@@ -176,7 +176,7 @@ export const PressPage = () => {
                 View Brand Guidelines
               </button>
             </div>
-            <p className="text-slate-600 text-xs mt-4">ZIP file · 47MB · Includes SVG, PNG in light/dark variants</p>
+            <p className="text-slate-600 text-xs mt-4">ZIP file Â· 47MB Â· Includes SVG, PNG in light/dark variants</p>
           </motion.div>
         </div>
       </section>

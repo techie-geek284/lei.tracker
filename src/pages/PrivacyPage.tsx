@@ -1,4 +1,4 @@
-export const PrivacyPage = () => {
+﻿export const PrivacyPage = () => {
   return (
     <div className="min-h-screen bg-[#0f172a] text-white">
       {/* Hero */}
@@ -46,7 +46,7 @@ export const PrivacyPage = () => {
 
           <h3 className="text-lg font-medium text-white mb-3">Account Information</h3>
           <ul className="space-y-2 mb-6">
-            {["Full name and display name", "Email address", "Mobile phone number", "Password (stored as a bcrypt hash — never in plain text)", "Profile photo (optional)"].map((item) => (
+            {["Full name and display name", "Email address", "Mobile phone number", "Password (stored as a bcrypt hash â€” never in plain text)", "Profile photo (optional)"].map((item) => (
               <li key={item} className="flex items-start gap-3 text-slate-300">
                 <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-blue-400 flex-shrink-0" />
                 {item}
@@ -111,7 +111,7 @@ export const PrivacyPage = () => {
         <div className="glass rounded-2xl p-8">
           <h2 className="text-xl font-semibold text-white mb-4">4. Account Aggregator Data</h2>
           <p className="text-slate-300 leading-relaxed mb-4">
-            FinFlow integrates with the RBI-regulated Account Aggregator (AA) framework — a consent-based
+            FinFlow integrates with the RBI-regulated Account Aggregator (AA) framework â€” a consent-based
             financial data sharing system governed by the Reserve Bank of India. Under this framework,
             you explicitly authorise specific financial institutions to share your data with FinFlow for
             defined purposes and durations.
@@ -119,7 +119,7 @@ export const PrivacyPage = () => {
           <ul className="space-y-3">
             {[
               "Read-only access: We never receive or store your banking credentials. All data flows through the AA ecosystem under your explicit consent.",
-              "Purpose limitation: Data fetched via AA is used solely for the purpose you consented to — personal financial management and analysis.",
+              "Purpose limitation: Data fetched via AA is used solely for the purpose you consented to â€” personal financial management and analysis.",
               "Data not sold: Your financial data is never sold, rented, or shared with third parties for advertising or marketing purposes.",
               "Consent management: You can view, pause, or revoke any AA consent at any time directly from your FinFlow account settings.",
               "Consent expiry: AA consents are time-bound. You will be notified before a consent expires and asked to renew if you wish to continue.",
@@ -279,7 +279,7 @@ export const PrivacyPage = () => {
           <p className="text-slate-300 leading-relaxed">
             We may update this Privacy Policy from time to time to reflect changes in our practices,
             technology, legal requirements, or other factors. When we make material changes, we will
-            notify you at least 30 days before the changes take effect — via email to your registered
+            notify you at least 30 days before the changes take effect â€” via email to your registered
             address and via a prominent notice within the FinFlow application. Your continued use of
             our Services after the effective date of the updated policy constitutes your acceptance
             of the changes. We encourage you to review this policy periodically.

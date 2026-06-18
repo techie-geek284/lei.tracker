@@ -1,4 +1,4 @@
-export const TermsPage = () => {
+﻿export const TermsPage = () => {
   return (
     <div className="min-h-screen bg-[#0f172a] text-white">
       {/* Hero */}
@@ -170,7 +170,7 @@ export const TermsPage = () => {
           <h2 className="text-xl font-semibold text-white mb-4">7. Refund Policy</h2>
           <ul className="space-y-3">
             {[
-              { title: "Pro Plan", desc: "We offer a 7-day money-back guarantee from the date of your first paid charge. If you are not satisfied, contact us within 7 days for a full refund — no questions asked." },
+              { title: "Pro Plan", desc: "We offer a 7-day money-back guarantee from the date of your first paid charge. If you are not satisfied, contact us within 7 days for a full refund â€” no questions asked." },
               { title: "Business and Enterprise Plans", desc: "Refund requests are evaluated on a case-by-case basis. Please contact your account manager or email legal@finflow.in within 14 days of the charge." },
               { title: "Partial Months", desc: "We do not issue refunds or credits for partial months of service. If you cancel mid-cycle, you will retain access until the end of the billing period." },
               { title: "Annual Plans", desc: "Annual plan refunds beyond the 7-day money-back window are not provided, except where required by applicable Indian law." },
@@ -190,8 +190,8 @@ export const TermsPage = () => {
         <div className="glass rounded-2xl p-8">
           <h2 className="text-xl font-semibold text-white mb-4">8. Intellectual Property</h2>
           <p className="text-slate-300 leading-relaxed mb-4">
-            All intellectual property rights in the FinFlow platform — including the software,
-            algorithms, design, trademarks, logos, and brand identity — are owned by or licensed to
+            All intellectual property rights in the FinFlow platform â€” including the software,
+            algorithms, design, trademarks, logos, and brand identity â€” are owned by or licensed to
             FinFlow Technologies Pvt Ltd. Nothing in these Terms grants you any right, title, or
             interest in our intellectual property.
           </p>
@@ -214,7 +214,7 @@ export const TermsPage = () => {
             {[
               "The terms and guidelines of the Reserve Bank of India governing the AA framework",
               "The specific terms of consent you provide at the time of linking each financial account",
-              "Read-only access — FinFlow cannot initiate transactions or modify any financial account on your behalf",
+              "Read-only access â€” FinFlow cannot initiate transactions or modify any financial account on your behalf",
               "Your right to revoke any AA consent at any time through the FinFlow app or directly through the relevant AA entity",
             ].map((item) => (
               <li key={item} className="flex items-start gap-3 text-slate-300">
@@ -236,7 +236,7 @@ export const TermsPage = () => {
           <p className="text-slate-300 leading-relaxed">
             FinFlow shall not be liable for any indirect, incidental, special, consequential, or
             punitive damages, including loss of profits, loss of data, or business interruption,
-            arising out of or in connection with your use of the Services — even if FinFlow has been
+            arising out of or in connection with your use of the Services â€” even if FinFlow has been
             advised of the possibility of such damages. The Services are provided "as is" without
             warranties of any kind, express or implied, to the fullest extent permitted by law.
           </p>

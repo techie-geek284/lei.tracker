@@ -1,18 +1,18 @@
-import { motion } from 'framer-motion';
-import { Clock, Calendar, ArrowRight, Mail, TrendingUp, Cpu, BarChart2, Briefcase, FileText, Users } from 'lucide-react';
+﻿import { motion } from 'framer-motion';
+import { type LucideIcon, Clock, Calendar, ArrowRight, Mail, TrendingUp, Cpu, BarChart2, Briefcase, FileText, Users } from 'lucide-react';
 
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
   visible: (i: number = 0) => ({
     opacity: 1,
     y: 0,
-    transition: { duration: 0.6, delay: i * 0.1, ease: [0.25, 0.46, 0.45, 0.94] },
+    transition: { duration: 0.6, delay: i * 0.1 },
   }),
 };
 
 const categories = ['All', 'AI & Finance', 'Investing', 'Engineering', 'Business', 'Tax & Compliance', 'Personal Finance'];
 
-const categoryStyles: Record<string, { bg: string; text: string; icon: React.ElementType }> = {
+const categoryStyles: Record<string, { bg: string; text: string; icon: LucideIcon }> = {
   'AI & Finance':     { bg: 'bg-[#6366f1]/15', text: 'text-[#6366f1]', icon: Cpu },
   'Investing':        { bg: 'bg-[#10b981]/15', text: 'text-[#10b981]', icon: TrendingUp },
   'Engineering':      { bg: 'bg-[#06b6d4]/15', text: 'text-[#06b6d4]', icon: BarChart2 },
@@ -40,7 +40,7 @@ const posts = [
     author: 'Rahul Sharma',
     authorInitial: 'RS',
     authorGradient: 'from-[#10b981] to-[#6366f1]',
-    excerpt: 'The RBI\'s Account Aggregator framework is transformative. We share everything we learned building our AA integration — the good, the painful, and the unexpected.',
+    excerpt: 'The RBI\'s Account Aggregator framework is transformative. We share everything we learned building our AA integration â€” the good, the painful, and the unexpected.',
   },
   {
     title: 'The Hidden Cost of Manual Expense Reports: A Data Study',
@@ -50,7 +50,7 @@ const posts = [
     author: 'Priya Mehta',
     authorInitial: 'PM',
     authorGradient: 'from-[#f59e0b] to-[#ef4444]',
-    excerpt: 'We analysed expense data from 200+ SMEs and found that manual expense reporting costs the average Indian company ₹4.2L per year in lost productivity alone.',
+    excerpt: 'We analysed expense data from 200+ SMEs and found that manual expense reporting costs the average Indian company â‚¹4.2L per year in lost productivity alone.',
   },
   {
     title: 'Monte Carlo Simulations: How FinFlow Predicts Your Financial Future',
@@ -114,7 +114,7 @@ export const BlogPage = () => {
             initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}
             className="flex flex-wrap gap-3 justify-center"
           >
-            {categories.map((cat, i) => {
+            {categories.map((cat) => {
               const style = categoryStyles[cat];
               const isAll = cat === 'All';
               return (

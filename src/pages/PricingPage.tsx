@@ -1,17 +1,17 @@
-import { useState } from 'react';
+﻿import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Check, X, Minus, ChevronDown, ArrowRight, Sparkles, Mail, MessageCircle } from 'lucide-react';
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
 };
 
 const stagger = {
   visible: { transition: { staggerChildren: 0.08 } },
 };
 
-// ── Plans ──────────────────────────────────────────────────────────────────────
+// â”€â”€ Plans â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 interface Plan {
   name: string;
@@ -66,7 +66,7 @@ const plans: Plan[] = [
   },
 ];
 
-// ── Comparison Table ───────────────────────────────────────────────────────────
+// â”€â”€ Comparison Table â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 type CellValue = boolean | string;
 
@@ -115,11 +115,11 @@ const featureRows: FeatureRow[] = [
 const CellDisplay = ({ value }: { value: CellValue }) => {
   if (value === true) return <Check className="w-5 h-5 text-emerald-400 mx-auto" />;
   if (value === false) return <X className="w-4 h-4 text-slate-700 mx-auto" />;
-  if (value === '—') return <Minus className="w-4 h-4 text-slate-700 mx-auto" />;
+  if (value === 'â€”') return <Minus className="w-4 h-4 text-slate-700 mx-auto" />;
   return <span className="text-slate-300 text-sm font-medium">{value}</span>;
 };
 
-// ── FAQ ────────────────────────────────────────────────────────────────────────
+// â”€â”€ FAQ â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 interface FAQ {
   q: string;
@@ -137,7 +137,7 @@ const faqs: FAQ[] = [
   },
   {
     q: 'Do you offer refunds?',
-    a: 'We offer a full refund within 30 days of any paid subscription charge — no questions asked. After 30 days we evaluate refund requests on a case-by-case basis. Contact support@finflow.in with your order ID.',
+    a: 'We offer a full refund within 30 days of any paid subscription charge â€” no questions asked. After 30 days we evaluate refund requests on a case-by-case basis. Contact support@finflow.in with your order ID.',
   },
   {
     q: 'Is there a setup fee?',
@@ -145,11 +145,11 @@ const faqs: FAQ[] = [
   },
   {
     q: 'How does the Account Aggregator work?',
-    a: 'Account Aggregator (AA) is an RBI-licensed data-sharing framework. You consent once per bank, and the bank shares your transaction data directly with FinFlow over an encrypted channel. FinFlow never sees your banking credentials — credentials stay between you and your bank.',
+    a: 'Account Aggregator (AA) is an RBI-licensed data-sharing framework. You consent once per bank, and the bank shares your transaction data directly with FinFlow over an encrypted channel. FinFlow never sees your banking credentials â€” credentials stay between you and your bank.',
   },
   {
     q: 'Can I add more users to the Business plan?',
-    a: 'The Business plan includes 5 user seats. Additional seats can be purchased at ₹299/user/month (or ₹239/user/month on annual billing). For teams larger than 20 users, we recommend the Enterprise plan.',
+    a: 'The Business plan includes 5 user seats. Additional seats can be purchased at â‚¹299/user/month (or â‚¹239/user/month on annual billing). For teams larger than 20 users, we recommend the Enterprise plan.',
   },
   {
     q: 'Do you offer discounts for NGOs or early-stage startups?',
@@ -161,7 +161,7 @@ const faqs: FAQ[] = [
   },
 ];
 
-const FAQItem = ({ faq, index }: { faq: FAQ; index: number }) => {
+const FAQItem = ({ faq }: { faq: FAQ }) => {
   const [open, setOpen] = useState(false);
 
   return (
@@ -179,7 +179,7 @@ const FAQItem = ({ faq, index }: { faq: FAQ; index: number }) => {
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.3, ease: 'easeInOut' }}
+            transition={{ duration: 0.3 }}
             className="overflow-hidden"
           >
             <p className="text-slate-400 text-sm leading-relaxed pb-5">{faq.a}</p>
@@ -190,7 +190,7 @@ const FAQItem = ({ faq, index }: { faq: FAQ; index: number }) => {
   );
 };
 
-// ── Page ──────────────────────────────────────────────────────────────────────
+// â”€â”€ Page â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 export const PricingPage = () => {
   const [annual, setAnnual] = useState(true);
@@ -199,7 +199,7 @@ export const PricingPage = () => {
     if (plan.monthlyPrice === null) return 'Custom';
     if (plan.monthlyPrice === 0) return 'Free';
     const price = annual ? plan.annualPrice! : plan.monthlyPrice;
-    return `₹${price.toLocaleString('en-IN')}`;
+    return `â‚¹${price.toLocaleString('en-IN')}`;
   };
 
   return (
@@ -278,7 +278,7 @@ export const PricingPage = () => {
                   </motion.div>
                 </AnimatePresence>
                 {annual && plan.monthlyPrice !== null && plan.monthlyPrice > 0 && (
-                  <p className="text-slate-600 text-xs">billed ₹{(plan.annualPrice! * 12).toLocaleString('en-IN')}/year</p>
+                  <p className="text-slate-600 text-xs">billed â‚¹{(plan.annualPrice! * 12).toLocaleString('en-IN')}/year</p>
                 )}
               </div>
 
@@ -294,7 +294,7 @@ export const PricingPage = () => {
       <section className="max-w-7xl mx-auto px-6 pb-24">
         <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="text-center mb-10 space-y-3">
           <h2 className="text-3xl font-bold">Full Feature Comparison</h2>
-          <p className="text-slate-400">Everything you get with each plan — no fine print.</p>
+          <p className="text-slate-400">Everything you get with each plan â€” no fine print.</p>
         </motion.div>
 
         <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="glass rounded-2xl border border-white/5 overflow-hidden">
@@ -344,7 +344,7 @@ export const PricingPage = () => {
 
         <motion.div variants={stagger} initial="hidden" whileInView="visible" viewport={{ once: true }} className="glass rounded-2xl border border-white/5 px-6 divide-y divide-white/0">
           {faqs.map((faq, i) => (
-            <FAQItem key={i} faq={faq} index={i} />
+            <FAQItem key={i} faq={faq} />
           ))}
         </motion.div>
       </section>
@@ -355,7 +355,7 @@ export const PricingPage = () => {
           <div className="space-y-5">
             <h2 className="text-3xl font-bold">Still have questions?</h2>
             <p className="text-slate-400 leading-relaxed">
-              Our team is available Monday–Saturday, 9am–7pm IST. Typical response time is under 4 hours on business days. Enterprise inquiries get a dedicated response within 2 hours.
+              Our team is available Mondayâ€“Saturday, 9amâ€“7pm IST. Typical response time is under 4 hours on business days. Enterprise inquiries get a dedicated response within 2 hours.
             </p>
             <div className="space-y-3">
               <div className="flex items-center gap-3 text-slate-300">
@@ -364,7 +364,7 @@ export const PricingPage = () => {
               </div>
               <div className="flex items-center gap-3 text-slate-300">
                 <MessageCircle className="w-5 h-5 text-cyan-400 shrink-0" />
-                <span className="text-sm">Live chat — bottom right corner of this page</span>
+                <span className="text-sm">Live chat â€” bottom right corner of this page</span>
               </div>
             </div>
           </div>

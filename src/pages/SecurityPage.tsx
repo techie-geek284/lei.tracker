@@ -1,4 +1,4 @@
-const Chip = ({ label }: { label: string }) => (
+﻿const Chip = ({ label }: { label: string }) => (
   <span className="inline-block bg-blue-500/10 text-blue-400 border border-blue-500/20 rounded px-2 py-0.5 text-xs font-mono mr-2 mb-1">
     {label}
   </span>
@@ -16,7 +16,7 @@ export const SecurityPage = () => {
           </span>
           <p className="mt-6 text-slate-400 text-lg max-w-2xl mx-auto">
             Security is our foundation, not a feature. FinFlow is built on bank-grade security
-            architecture from day one — because your financial data demands nothing less.
+            architecture from day one â€” because your financial data demands nothing less.
           </p>
         </div>
       </div>
@@ -33,7 +33,7 @@ export const SecurityPage = () => {
             <Chip label="AWS KMS" />
           </div>
           <p className="text-slate-300 leading-relaxed mb-4">
-            Every sensitive data field in FinFlow is encrypted individually — not just at the
+            Every sensitive data field in FinFlow is encrypted individually â€” not just at the
             database level. This means that even within our own infrastructure, data at rest is
             unreadable without explicit key authorisation.
           </p>
@@ -94,7 +94,7 @@ export const SecurityPage = () => {
           </div>
           <p className="text-slate-300 leading-relaxed mb-4">
             FinFlow integrates with financial data through the RBI-regulated Account Aggregator
-            framework — the most secure and privacy-preserving financial data sharing mechanism
+            framework â€” the most secure and privacy-preserving financial data sharing mechanism
             available in India.
           </p>
           <ul className="space-y-3">
@@ -129,7 +129,7 @@ export const SecurityPage = () => {
               { title: "Role-based access (RBAC)", desc: "Every internal user is assigned the minimum permissions required for their role. Access to customer data is restricted to a small subset of our engineering and support team with explicit justification." },
               { title: "MFA for all team access", desc: "Multi-factor authentication is mandatory for every team member accessing internal systems, cloud consoles, and code repositories. No exceptions." },
               { title: "Zero-trust network", desc: "We do not assume trust based on network location. Every internal service-to-service call is authenticated via short-lived tokens." },
-              { title: "Full audit logs", desc: "Every privileged action — including any access to customer data — is logged with timestamp, identity, and justification. Logs are immutable and retained for 12 months." },
+              { title: "Full audit logs", desc: "Every privileged action â€” including any access to customer data â€” is logged with timestamp, identity, and justification. Logs are immutable and retained for 12 months." },
             ].map((item) => (
               <li key={item.title} className="flex items-start gap-3">
                 <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-blue-400 flex-shrink-0" />
@@ -177,8 +177,8 @@ export const SecurityPage = () => {
             <Chip label="Mumbai (ap-south-1)" />
           </div>
           <p className="text-slate-300 leading-relaxed">
-            All customer data — including financial records, personal information, and derived
-            insights — is stored exclusively in India in the AWS Mumbai (ap-south-1) region.
+            All customer data â€” including financial records, personal information, and derived
+            insights â€” is stored exclusively in India in the AWS Mumbai (ap-south-1) region.
             We do not transfer, replicate, or back up personal financial data to any location
             outside India. This complies with RBI data localisation requirements for financial data.
           </p>
@@ -258,7 +258,7 @@ export const SecurityPage = () => {
               "Public hall of fame recognition on our security page for valid, responsibly disclosed vulnerabilities.",
               "Direct acknowledgement from our security team for every valid report.",
               "Priority consideration for high-severity findings, with coordinated disclosure timelines tailored to impact.",
-              "Formal monetary bounty programme planned for launch in Q1 2027 — register your interest at security@finflow.in.",
+              "Formal monetary bounty programme planned for launch in Q1 2027 â€” register your interest at security@finflow.in.",
             ].map((item) => (
               <li key={item} className="flex items-start gap-3 text-slate-300">
                 <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-blue-400 flex-shrink-0" />

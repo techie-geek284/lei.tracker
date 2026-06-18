@@ -1,4 +1,4 @@
-export const GDPRPage = () => {
+﻿export const GDPRPage = () => {
   return (
     <div className="min-h-screen bg-[#0f172a] text-white">
       {/* Hero */}
@@ -44,7 +44,7 @@ export const GDPRPage = () => {
           </p>
           <ul className="space-y-3">
             {[
-              { title: "FinFlow as Data Processor", desc: "For Business and Enterprise customers, FinFlow acts as a Data Processor. Our customers — the organisations deploying FinFlow — are the Data Controllers who determine how employee or end-user data is processed within the platform." },
+              { title: "FinFlow as Data Processor", desc: "For Business and Enterprise customers, FinFlow acts as a Data Processor. Our customers â€” the organisations deploying FinFlow â€” are the Data Controllers who determine how employee or end-user data is processed within the platform." },
               { title: "FinFlow as Data Controller", desc: "For individual Free and Pro users, FinFlow acts as a Data Controller for the personal data we collect directly (e.g., account information, usage analytics)." },
               { title: "Data Processing Agreement", desc: "Business and Enterprise customers can request a Data Processing Agreement (DPA) to formalise the controller-processor relationship in accordance with GDPR Article 28." },
             ].map((item) => (
@@ -68,7 +68,7 @@ export const GDPRPage = () => {
           <ul className="space-y-3">
             {[
               { title: "Contract performance (Article 6(1)(b))", desc: "Processing necessary to provide the Services you have subscribed to, including account management, financial data aggregation, and report generation." },
-              { title: "Legitimate interests (Article 6(1)(f))", desc: "Processing for fraud prevention, platform security, and improving the quality of our Services — where these interests are not overridden by your rights." },
+              { title: "Legitimate interests (Article 6(1)(f))", desc: "Processing for fraud prevention, platform security, and improving the quality of our Services â€” where these interests are not overridden by your rights." },
               { title: "Consent (Article 6(1)(a))", desc: "Processing for non-essential analytics and marketing communications. You may withdraw consent at any time without affecting the lawfulness of prior processing." },
               { title: "Legal obligation (Article 6(1)(c))", desc: "Processing required to comply with applicable law, including Indian financial regulations and tax obligations." },
             ].map((item) => (
@@ -94,7 +94,7 @@ export const GDPRPage = () => {
             {[
               { title: "Right to Access (Article 15)", desc: "Request a copy of all personal data we hold about you, including the purposes for processing, categories of data, and retention periods. Response time: 30 days." },
               { title: "Right to Rectification (Article 16)", desc: "Request correction of inaccurate or incomplete personal data. Response time: 30 days." },
-              { title: "Right to Erasure — 'Right to be Forgotten' (Article 17)", desc: "Request deletion of your personal data where it is no longer necessary for the purposes for which it was collected, subject to our legal retention obligations." },
+              { title: "Right to Erasure â€” 'Right to be Forgotten' (Article 17)", desc: "Request deletion of your personal data where it is no longer necessary for the purposes for which it was collected, subject to our legal retention obligations." },
               { title: "Right to Data Portability (Article 20)", desc: "Receive a copy of your personal data in a structured, machine-readable format (JSON or CSV) that you can transfer to another service provider." },
               { title: "Right to Restrict Processing (Article 18)", desc: "Request that we limit how we use your data while a dispute or erasure request is being investigated." },
               { title: "Right to Object (Article 21)", desc: "Object to processing based on legitimate interests or for direct marketing purposes. We will stop processing unless we can demonstrate compelling legitimate grounds." },
@@ -116,7 +116,7 @@ export const GDPRPage = () => {
           <p className="text-slate-300 leading-relaxed mb-4">
             To submit a data subject rights request, please email{" "}
             <a href="mailto:privacy@finflow.in" className="text-blue-400 hover:underline">privacy@finflow.in</a>
-            {" "}with the subject line "GDPR Rights Request — [Type of Request]".
+            {" "}with the subject line "GDPR Rights Request â€” [Type of Request]".
           </p>
           <p className="text-slate-300 leading-relaxed mb-4">
             To protect your privacy and prevent unauthorised requests, we will ask you to verify
@@ -246,7 +246,7 @@ export const GDPRPage = () => {
           <p className="text-slate-300 leading-relaxed">
             We encourage you to contact us first at{" "}
             <a href="mailto:privacy@finflow.in" className="text-blue-400 hover:underline">privacy@finflow.in</a>
-            {" "}— we take all privacy concerns seriously and aim to resolve them directly and promptly.
+            {" "}â€” we take all privacy concerns seriously and aim to resolve them directly and promptly.
             However, you always retain the right to escalate to your local supervisory authority.
           </p>
         </div>

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+﻿import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Mail, Headphones, Handshake, MapPin, Clock, Phone, ChevronDown, Send } from 'lucide-react';
 
@@ -7,7 +7,7 @@ const fadeUp = {
   visible: (i: number = 0) => ({
     opacity: 1,
     y: 0,
-    transition: { duration: 0.6, delay: i * 0.1, ease: [0.25, 0.46, 0.45, 0.94] },
+    transition: { duration: 0.6, delay: i * 0.1 },
   }),
 };
 
@@ -47,11 +47,11 @@ const contactOptions = [
 const faqs = [
   {
     q: 'How quickly can I get started?',
-    a: 'Sign up in 2 minutes, connect your bank in 5. You\'re up and running same day. Our onboarding flow guides you step by step — no finance degree required.',
+    a: 'Sign up in 2 minutes, connect your bank in 5. You\'re up and running same day. Our onboarding flow guides you step by step â€” no finance degree required.',
   },
   {
     q: 'Do you offer a demo?',
-    a: 'Yes — book a 30-minute live demo with our team. We\'ll customise it to your business needs, walking you through the exact workflows relevant to your company\'s size and industry.',
+    a: 'Yes â€” book a 30-minute live demo with our team. We\'ll customise it to your business needs, walking you through the exact workflows relevant to your company\'s size and industry.',
   },
   {
     q: 'What\'s included in the free trial?',
@@ -182,7 +182,7 @@ export const ContactPage = () => {
                     onChange={e => setFormState(s => ({ ...s, topic: e.target.value }))}
                     className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white focus:outline-none focus:border-[#6366f1]/50 transition-colors text-sm appearance-none cursor-pointer"
                   >
-                    <option value="" className="bg-[#1e293b] text-slate-400">Select a topic…</option>
+                    <option value="" className="bg-[#1e293b] text-slate-400">Select a topicâ€¦</option>
                     <option value="sales" className="bg-[#1e293b]">Sales</option>
                     <option value="support" className="bg-[#1e293b]">Support</option>
                     <option value="partnership" className="bg-[#1e293b]">Partnership</option>
@@ -198,7 +198,7 @@ export const ContactPage = () => {
                 <textarea
                   value={formState.message}
                   onChange={e => setFormState(s => ({ ...s, message: e.target.value }))}
-                  placeholder="Tell us about your company and what you're looking for…"
+                  placeholder="Tell us about your company and what you're looking forâ€¦"
                   rows={5}
                   className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-slate-600 focus:outline-none focus:border-[#6366f1]/50 transition-colors text-sm resize-none"
                 />
@@ -240,7 +240,7 @@ export const ContactPage = () => {
                   </div>
                   <div>
                     <div className="text-white text-sm font-medium">Office Hours</div>
-                    <div className="text-slate-400 text-sm mt-0.5">Mon–Fri, 9 AM–7 PM IST</div>
+                    <div className="text-slate-400 text-sm mt-0.5">Monâ€“Fri, 9 AMâ€“7 PM IST</div>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
@@ -284,7 +284,7 @@ export const ContactPage = () => {
                           initial={{ height: 0, opacity: 0 }}
                           animate={{ height: 'auto', opacity: 1 }}
                           exit={{ height: 0, opacity: 0 }}
-                          transition={{ duration: 0.25, ease: 'easeInOut' }}
+                          transition={{ duration: 0.25 }}
                           className="overflow-hidden"
                         >
                           <div className="px-4 pb-4 text-sm text-slate-400 leading-relaxed border-t border-white/5 pt-3">

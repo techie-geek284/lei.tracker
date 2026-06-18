@@ -1,4 +1,4 @@
-import { useRef, useEffect, Suspense, lazy } from 'react'
+import { useRef, useEffect } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { Canvas, useFrame } from '@react-three/fiber'
@@ -38,7 +38,7 @@ const Burst = () => {
   const geo = useRef(new THREE.BufferGeometry())
 
   useEffect(() => {
-    particles.current.forEach((p, i) => {
+    particles.current.forEach((_p, i) => {
       const c = new THREE.Color(COLORS[i % COLORS.length])
       colArr.current[i * 3] = c.r
       colArr.current[i * 3 + 1] = c.g

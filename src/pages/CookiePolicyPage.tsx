@@ -1,4 +1,4 @@
-export const CookiePolicyPage = () => {
+﻿export const CookiePolicyPage = () => {
   return (
     <div className="min-h-screen bg-[#0f172a] text-white">
       {/* Hero */}
@@ -27,8 +27,8 @@ export const CookiePolicyPage = () => {
             to remember your preferences, and to provide information to the website owners.
           </p>
           <p className="text-slate-300 leading-relaxed">
-            Cookies may be "session cookies" — which expire when you close your browser — or
-            "persistent cookies" — which remain on your device for a defined period or until you
+            Cookies may be "session cookies" â€” which expire when you close your browser â€” or
+            "persistent cookies" â€” which remain on your device for a defined period or until you
             delete them. We also use similar tracking technologies such as local storage and
             pixel tags, which are subject to the same rules described in this policy.
           </p>
@@ -44,7 +44,7 @@ export const CookiePolicyPage = () => {
             {[
               { title: "Session management", desc: "To keep you securely logged in as you navigate between pages within the FinFlow application." },
               { title: "Preferences", desc: "To remember your settings such as language, dashboard layout, date format, and notification preferences so you don't have to reconfigure them on every visit." },
-              { title: "Analytics", desc: "To understand how users interact with the platform — which features are most used, where users encounter friction, and how to improve the product experience." },
+              { title: "Analytics", desc: "To understand how users interact with the platform â€” which features are most used, where users encounter friction, and how to improve the product experience." },
               { title: "Security", desc: "To protect your account against cross-site request forgery (CSRF) attacks and to detect suspicious login activity." },
             ].map((item) => (
               <li key={item.title} className="flex items-start gap-3">
@@ -58,7 +58,7 @@ export const CookiePolicyPage = () => {
           </ul>
         </div>
 
-        {/* 3. Types of Cookies We Use — Table */}
+        {/* 3. Types of Cookies We Use â€” Table */}
         <div className="glass rounded-2xl p-8">
           <h2 className="text-xl font-semibold text-white mb-6">3. Types of Cookies We Use</h2>
           <div className="overflow-x-auto">
@@ -122,9 +122,9 @@ export const CookiePolicyPage = () => {
                   </tr>
                 ))}
                 <tr>
-                  <td className="py-3 pr-4 text-slate-500 italic text-xs">—</td>
+                  <td className="py-3 pr-4 text-slate-500 italic text-xs">â€”</td>
                   <td className="py-3 pr-4 text-slate-500 italic">No marketing cookies currently used</td>
-                  <td className="py-3 pr-4 text-slate-500">—</td>
+                  <td className="py-3 pr-4 text-slate-500">â€”</td>
                   <td className="py-3">
                     <span className="inline-block px-2 py-0.5 rounded text-xs font-medium bg-white/5 text-slate-500 border border-white/10">
                       Marketing
@@ -141,7 +141,7 @@ export const CookiePolicyPage = () => {
           <h2 className="text-xl font-semibold text-white mb-4">4. Third-Party Cookies</h2>
           <p className="text-slate-300 leading-relaxed mb-4">
             Some cookies on our platform are set by third-party services we use. We do not
-            control these cookies directly — they are governed by each provider's own privacy policy.
+            control these cookies directly â€” they are governed by each provider's own privacy policy.
           </p>
           <ul className="space-y-3">
             {[
@@ -203,10 +203,10 @@ export const CookiePolicyPage = () => {
           <h3 className="text-lg font-medium text-white mb-3">Browser Settings</h3>
           <ul className="space-y-2 mb-6">
             {[
-              "Google Chrome: Settings → Privacy and Security → Cookies and other site data",
-              "Mozilla Firefox: Settings → Privacy & Security → Cookies and Site Data",
-              "Safari: Preferences → Privacy → Manage Website Data",
-              "Microsoft Edge: Settings → Cookies and Site Permissions",
+              "Google Chrome: Settings â†’ Privacy and Security â†’ Cookies and other site data",
+              "Mozilla Firefox: Settings â†’ Privacy & Security â†’ Cookies and Site Data",
+              "Safari: Preferences â†’ Privacy â†’ Manage Website Data",
+              "Microsoft Edge: Settings â†’ Cookies and Site Permissions",
             ].map((item) => (
               <li key={item} className="flex items-start gap-3 text-slate-300">
                 <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-blue-400 flex-shrink-0" />

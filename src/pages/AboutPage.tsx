@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+﻿import { motion } from 'framer-motion';
 import { Heart, Zap, Globe, Users, MapPin, TrendingUp, Award, ArrowRight } from 'lucide-react';
 
 const fadeUp = {
@@ -6,13 +6,13 @@ const fadeUp = {
   visible: (i: number = 0) => ({
     opacity: 1,
     y: 0,
-    transition: { duration: 0.6, delay: i * 0.1, ease: [0.25, 0.46, 0.45, 0.94] },
+    transition: { duration: 0.6, delay: i * 0.1 },
   }),
 };
 
 const stats = [
   { label: 'Founded', value: '2022', icon: Award },
-  { label: 'Raised', value: '₹42Cr', icon: TrendingUp },
+  { label: 'Raised', value: 'â‚¹42Cr', icon: TrendingUp },
   { label: 'Companies', value: '500+', icon: Globe },
   { label: 'Users', value: '25,000+', icon: Users },
   { label: 'Team Members', value: '48', icon: Heart },
@@ -22,26 +22,26 @@ const stats = [
 const timeline = [
   { year: '2022', title: 'The Beginning', desc: 'Two IIT alumni frustrated with Excel sheets for managing company finances. FinFlow is born.' },
   { year: '2022 Q3', title: 'First Customers', desc: 'Built MVP in 90 days. First 10 customers from IIT alumni network.' },
-  { year: '2023', title: 'Seed Round', desc: 'Seed round ₹8Cr. Launched consumer app. Hit 1,000 users.' },
-  { year: '2024', title: 'Series A', desc: 'Series A ₹34Cr led by Sequoia India. Launched enterprise tier. 200+ businesses.' },
+  { year: '2023', title: 'Seed Round', desc: 'Seed round â‚¹8Cr. Launched consumer app. Hit 1,000 users.' },
+  { year: '2024', title: 'Series A', desc: 'Series A â‚¹34Cr led by Sequoia India. Launched enterprise tier. 200+ businesses.' },
   { year: '2025', title: 'AA Integration', desc: 'Launched Account Aggregator integration. First white-label deal with a regional bank.' },
   { year: '2026', title: 'Scaling Up', desc: 'Series B in progress. 500+ companies. 25,000+ individuals. Expanding to Southeast Asia.' },
 ];
 
 const values = [
   { icon: Heart, title: 'User Obsession', color: 'text-[#f59e0b]', bg: 'bg-[#f59e0b]/10', desc: 'Every decision starts and ends with the user. We obsess over every interaction, every edge case, every moment of friction.' },
-  { icon: Zap, title: 'Radical Transparency', color: 'text-[#06b6d4]', bg: 'bg-[#06b6d4]/10', desc: 'We share everything — wins, losses, metrics, mistakes. Our users, investors, and team deserve nothing less.' },
+  { icon: Zap, title: 'Radical Transparency', color: 'text-[#06b6d4]', bg: 'bg-[#06b6d4]/10', desc: 'We share everything â€” wins, losses, metrics, mistakes. Our users, investors, and team deserve nothing less.' },
   { icon: TrendingUp, title: 'AI-First', color: 'text-[#6366f1]', bg: 'bg-[#6366f1]/10', desc: 'Artificial intelligence is not a feature. It is our foundation. Every product decision is designed around intelligent automation.' },
-  { icon: Globe, title: 'India-First', color: 'text-[#10b981]', bg: 'bg-[#10b981]/10', desc: 'Built for India\'s unique financial ecosystem — UPI, GST, Account Aggregator, INR volatility. Not a Western product retrofitted.' },
+  { icon: Globe, title: 'India-First', color: 'text-[#10b981]', bg: 'bg-[#10b981]/10', desc: 'Built for India\'s unique financial ecosystem â€” UPI, GST, Account Aggregator, INR volatility. Not a Western product retrofitted.' },
 ];
 
 const team = [
-  { name: 'Aryan Gupta', role: 'Co-Founder & CEO', meta: 'IIT Bombay · ex-Goldman Sachs', initials: 'AG', gradient: 'from-[#6366f1] to-[#06b6d4]' },
-  { name: 'Kavya Nair', role: 'Co-Founder & CTO', meta: 'IIT Delhi · ex-Google', initials: 'KN', gradient: 'from-[#06b6d4] to-[#10b981]' },
-  { name: 'Rahul Sharma', role: 'VP Engineering', meta: 'IIT Madras · ex-Zepto', initials: 'RS', gradient: 'from-[#10b981] to-[#6366f1]' },
-  { name: 'Priya Mehta', role: 'VP Product', meta: 'ISB · ex-Razorpay', initials: 'PM', gradient: 'from-[#f59e0b] to-[#ef4444]' },
-  { name: 'Vikash Kumar', role: 'VP Sales', meta: 'XLRI · ex-Salesforce', initials: 'VK', gradient: 'from-[#6366f1] to-[#f59e0b]' },
-  { name: 'Anjali Reddy', role: 'Head of AI/ML', meta: 'IISc · ex-Microsoft Research', initials: 'AR', gradient: 'from-[#06b6d4] to-[#6366f1]' },
+  { name: 'Aryan Gupta', role: 'Co-Founder & CEO', meta: 'IIT Bombay Â· ex-Goldman Sachs', initials: 'AG', gradient: 'from-[#6366f1] to-[#06b6d4]' },
+  { name: 'Kavya Nair', role: 'Co-Founder & CTO', meta: 'IIT Delhi Â· ex-Google', initials: 'KN', gradient: 'from-[#06b6d4] to-[#10b981]' },
+  { name: 'Rahul Sharma', role: 'VP Engineering', meta: 'IIT Madras Â· ex-Zepto', initials: 'RS', gradient: 'from-[#10b981] to-[#6366f1]' },
+  { name: 'Priya Mehta', role: 'VP Product', meta: 'ISB Â· ex-Razorpay', initials: 'PM', gradient: 'from-[#f59e0b] to-[#ef4444]' },
+  { name: 'Vikash Kumar', role: 'VP Sales', meta: 'XLRI Â· ex-Salesforce', initials: 'VK', gradient: 'from-[#6366f1] to-[#f59e0b]' },
+  { name: 'Anjali Reddy', role: 'Head of AI/ML', meta: 'IISc Â· ex-Microsoft Research', initials: 'AR', gradient: 'from-[#06b6d4] to-[#6366f1]' },
 ];
 
 const investors = [
