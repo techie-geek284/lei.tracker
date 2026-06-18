@@ -1,21 +1,25 @@
 import { useEffect, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { MagneticButton } from './MagneticButton'
 import { scrollToSection } from '../../lib/utils'
 
 const NAV_LINKS = [
-  { label: 'Features', id: 'features' },
-  { label: 'AI', id: 'ai' },
-  { label: 'Segments', id: 'segments' },
-  { label: 'Pricing', id: 'pricing' },
-  { label: 'Docs', id: 'howitworks' },
+  { label: 'Features', id: 'features', to: '/features' },
+  { label: 'AI', id: 'ai', to: '/ai' },
+  { label: 'Segments', id: 'segments', to: '/#segments' },
+  { label: 'Pricing', id: 'pricing', to: '/pricing' },
+  { label: 'How It Works', id: 'howitworks', to: '/#howitworks' },
 ]
 
 export const Navbar = () => {
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
   const [active, setActive] = useState('home')
+  const location = useLocation()
+  const navigate = useNavigate()
+  const isHome = location.pathname === '/'
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 80)
@@ -24,7 +28,9 @@ export const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
+  // Active section detection — only on home page
   useEffect(() => {
+    if (!isHome) return
     const ids = ['home', ...NAV_LINKS.map((l) => l.id)]
     const observer = new IntersectionObserver(
       (entries) => {
@@ -39,11 +45,26 @@ export const Navbar = () => {
       if (el) observer.observe(el)
     })
     return () => observer.disconnect()
-  }, [])
+  }, [isHome])
 
   const handleNav = (id: string) => {
     setMobileOpen(false)
-    scrollToSection(id)
+    if (isHome) {
+      scrollToSection(id)
+    } else {
+      navigate('/')
+      setTimeout(() => scrollToSection(id), 100)
+    }
+  }
+
+  const handleNavLink = (link: typeof NAV_LINKS[0]) => {
+    setMobileOpen(false)
+    // If it links to a hash on home, use scroll
+    if (link.to.startsWith('/#')) {
+      const id = link.to.slice(2)
+      handleNav(id)
+    }
+    // Otherwise let Link handle it
   }
 
   return (
@@ -55,32 +76,50 @@ export const Navbar = () => {
       }`}
     >
       <nav className="max-w-7xl mx-auto px-6 flex items-center justify-between">
-        <button
-          onClick={() => handleNav('home')}
+        {/* Logo */}
+        <Link
+          to="/"
           className="text-2xl font-extrabold tracking-tight"
         >
           <span className="bg-gradient-to-r from-brand-500 to-cyan-500 bg-clip-text text-transparent">
             FinFlow
           </span>
-        </button>
+        </Link>
 
         {/* Desktop nav links */}
         <ul className="hidden lg:flex items-center gap-8">
-          {NAV_LINKS.map((link) => (
-            <li key={link.id}>
-              <button
-                onClick={() => handleNav(link.id)}
-                className="relative text-sm font-medium text-slate-300 hover:text-white transition-colors group py-1"
-              >
-                {link.label}
-                <span
-                  className={`absolute -bottom-0.5 left-0 h-0.5 w-full origin-left bg-gradient-to-r from-brand-500 to-cyan-500 transition-transform duration-300 group-hover:scale-x-100 ${
-                    active === link.id ? 'scale-x-100' : 'scale-x-0'
-                  }`}
-                />
-              </button>
-            </li>
-          ))}
+          {NAV_LINKS.map((link) => {
+            const isHashLink = link.to.startsWith('/#')
+            const isActive = isHome && active === link.id
+            const linkClass =
+              'relative text-sm font-medium text-slate-300 hover:text-white transition-colors group py-1'
+            const underline = (
+              <span
+                className={`absolute -bottom-0.5 left-0 h-0.5 w-full origin-left bg-gradient-to-r from-brand-500 to-cyan-500 transition-transform duration-300 group-hover:scale-x-100 ${
+                  isActive ? 'scale-x-100' : 'scale-x-0'
+                }`}
+              />
+            )
+
+            if (isHashLink) {
+              return (
+                <li key={link.id}>
+                  <button onClick={() => handleNav(link.id)} className={linkClass}>
+                    {link.label}
+                    {underline}
+                  </button>
+                </li>
+              )
+            }
+            return (
+              <li key={link.id}>
+                <Link to={link.to} className={linkClass}>
+                  {link.label}
+                  {underline}
+                </Link>
+              </li>
+            )
+          })}
         </ul>
 
         {/* Desktop CTAs */}
@@ -131,16 +170,31 @@ export const Navbar = () => {
                 </button>
               </div>
               <ul className="flex flex-col gap-1">
-                {NAV_LINKS.map((link) => (
-                  <li key={link.id}>
-                    <button
-                      onClick={() => handleNav(link.id)}
-                      className="w-full text-left py-3 px-2 text-lg font-medium text-slate-200 hover:text-white border-b border-white/5"
-                    >
-                      {link.label}
-                    </button>
-                  </li>
-                ))}
+                {NAV_LINKS.map((link) => {
+                  const isHashLink = link.to.startsWith('/#')
+                  const cls =
+                    'w-full text-left py-3 px-2 text-lg font-medium text-slate-200 hover:text-white border-b border-white/5'
+                  if (isHashLink) {
+                    return (
+                      <li key={link.id}>
+                        <button onClick={() => handleNav(link.id)} className={cls}>
+                          {link.label}
+                        </button>
+                      </li>
+                    )
+                  }
+                  return (
+                    <li key={link.id}>
+                      <Link
+                        to={link.to}
+                        onClick={() => setMobileOpen(false)}
+                        className={`block ${cls}`}
+                      >
+                        {link.label}
+                      </Link>
+                    </li>
+                  )
+                })}
               </ul>
               <div className="mt-8 flex flex-col gap-3">
                 <button className="w-full py-3 rounded-xl border border-white/15 text-white font-medium">

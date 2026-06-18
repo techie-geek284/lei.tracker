@@ -1,4 +1,4 @@
-import { scrollToSection } from '../../lib/utils'
+import { Link, useNavigate } from 'react-router-dom'
 
 const TwitterIcon = () => (
   <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
@@ -24,119 +24,150 @@ const YouTubeIcon = () => (
   </svg>
 )
 
-const PRODUCT_LINKS = ['Features', 'Pricing', 'AI', 'Integrations', 'Changelog']
-const COMPANY_LINKS = ['About', 'Blog', 'Careers', 'Press', 'Contact']
-const LEGAL_LINKS = ['Privacy', 'Terms', 'Security', 'GDPR', 'Cookie Policy']
-
-const SOCIAL = [
-  { icon: TwitterIcon, label: 'Twitter' },
-  { icon: LinkedInIcon, label: 'LinkedIn' },
-  { icon: GitHubIcon, label: 'GitHub' },
-  { icon: YouTubeIcon, label: 'YouTube' },
+const PRODUCT_LINKS = [
+  { label: 'Features', to: '/features' },
+  { label: 'Pricing', to: '/pricing' },
+  { label: 'AI', to: '/ai' },
+  { label: 'Integrations', to: '/integrations' },
+  { label: 'Changelog', to: '/changelog' },
 ]
 
-export const Footer = () => (
-  <footer className="bg-[#0a0f1e] border-t border-white/5">
-    <div className="max-w-7xl mx-auto px-6 py-16">
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-10">
-        {/* Column 1: Brand */}
-        <div className="col-span-2 md:col-span-1">
-          <button
-            onClick={() => scrollToSection('home')}
-            className="text-2xl font-black gradient-text mb-3"
-          >
-            FinFlow
-          </button>
-          <p className="text-sm text-slate-400 mb-6 max-w-xs">
-            Your entire financial universe in one platform.
+const COMPANY_LINKS = [
+  { label: 'About', to: '/about' },
+  { label: 'Blog', to: '/blog' },
+  { label: 'Careers', to: '/careers' },
+  { label: 'Press', to: '/press' },
+  { label: 'Contact', to: '/contact' },
+]
+
+const LEGAL_LINKS = [
+  { label: 'Privacy', to: '/privacy' },
+  { label: 'Terms', to: '/terms' },
+  { label: 'Security', to: '/security' },
+  { label: 'GDPR', to: '/gdpr' },
+  { label: 'Cookie Policy', to: '/cookie-policy' },
+]
+
+const SOCIAL = [
+  { icon: TwitterIcon, label: 'Twitter', href: 'https://twitter.com' },
+  { icon: LinkedInIcon, label: 'LinkedIn', href: 'https://linkedin.com' },
+  { icon: GitHubIcon, label: 'GitHub', href: 'https://github.com' },
+  { icon: YouTubeIcon, label: 'YouTube', href: 'https://youtube.com' },
+]
+
+export const Footer = () => {
+  const navigate = useNavigate()
+
+  return (
+    <footer className="bg-[#0a0f1e] border-t border-white/5">
+      <div className="max-w-7xl mx-auto px-6 py-16">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-10">
+          {/* Column 1: Brand */}
+          <div className="col-span-2 md:col-span-1">
+            <button
+              onClick={() => navigate('/')}
+              className="block text-2xl font-black gradient-text mb-3"
+            >
+              FinFlow
+            </button>
+            <p className="text-sm text-slate-400 mb-6 max-w-xs">
+              Your entire financial universe in one platform.
+            </p>
+
+            {/* Social icons */}
+            <div className="flex items-center gap-3 mb-6">
+              {SOCIAL.map(({ icon: Icon, label, href }) => (
+                <a
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={label}
+                  className="w-9 h-9 rounded-lg flex items-center justify-center text-slate-400 hover:text-white hover:bg-white/10 transition-colors border border-white/10"
+                >
+                  <Icon />
+                </a>
+              ))}
+            </div>
+
+            {/* App store placeholders */}
+            <div className="flex gap-2">
+              <div className="glass px-3 py-2 rounded-lg text-xs text-slate-400 cursor-pointer hover:bg-white/10 transition-colors">
+                App Store
+              </div>
+              <div className="glass px-3 py-2 rounded-lg text-xs text-slate-400 cursor-pointer hover:bg-white/10 transition-colors">
+                Google Play
+              </div>
+            </div>
+          </div>
+
+          {/* Column 2: Product */}
+          <div>
+            <h4 className="text-sm font-semibold text-white mb-5">Product</h4>
+            <ul className="space-y-3">
+              {PRODUCT_LINKS.map((l) => (
+                <li key={l.label}>
+                  <Link
+                    to={l.to}
+                    className="text-sm text-slate-400 hover:text-white transition-colors"
+                  >
+                    {l.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Column 3: Company */}
+          <div>
+            <h4 className="text-sm font-semibold text-white mb-5">Company</h4>
+            <ul className="space-y-3">
+              {COMPANY_LINKS.map((l) => (
+                <li key={l.label}>
+                  <Link
+                    to={l.to}
+                    className="text-sm text-slate-400 hover:text-white transition-colors"
+                  >
+                    {l.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Column 4: Legal */}
+          <div>
+            <h4 className="text-sm font-semibold text-white mb-5">Legal</h4>
+            <ul className="space-y-3">
+              {LEGAL_LINKS.map((l) => (
+                <li key={l.label}>
+                  <Link
+                    to={l.to}
+                    className="text-sm text-slate-400 hover:text-white transition-colors"
+                  >
+                    {l.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      {/* Bottom bar */}
+      <div className="border-t border-white/5">
+        <div className="max-w-7xl mx-auto px-6 py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
+          <p className="text-sm text-slate-500">
+            © 2026 FinFlow Technologies Pvt Ltd. All rights reserved.
           </p>
-
-          {/* Social icons */}
-          <div className="flex items-center gap-3 mb-6">
-            {SOCIAL.map(({ icon: Icon, label }) => (
-              <a
-                key={label}
-                href="#"
-                aria-label={label}
-                className="w-9 h-9 rounded-lg flex items-center justify-center text-slate-400 hover:text-white hover:bg-white/10 transition-colors border border-white/10"
-              >
-                <Icon />
-              </a>
-            ))}
-          </div>
-
-          {/* App store placeholders */}
-          <div className="flex gap-2">
-            <div className="glass px-3 py-2 rounded-lg text-xs text-slate-400 cursor-pointer hover:bg-white/10 transition-colors">
-              App Store
-            </div>
-            <div className="glass px-3 py-2 rounded-lg text-xs text-slate-400 cursor-pointer hover:bg-white/10 transition-colors">
-              Google Play
-            </div>
+          <div className="flex items-center gap-4 text-sm text-slate-500">
+            <Link to="/privacy" className="hover:text-slate-300 transition-colors">Privacy</Link>
+            <Link to="/terms" className="hover:text-slate-300 transition-colors">Terms</Link>
+            <Link to="/security" className="hover:text-slate-300 transition-colors">Security</Link>
+            <span>Made with ♥ in India 🇮🇳</span>
           </div>
         </div>
-
-        {/* Column 2: Product */}
-        <div>
-          <h4 className="text-sm font-semibold text-white mb-5">Product</h4>
-          <ul className="space-y-3">
-            {PRODUCT_LINKS.map((l) => (
-              <li key={l}>
-                <a
-                  href="#"
-                  className="text-sm text-slate-400 hover:text-white transition-colors"
-                >
-                  {l}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        {/* Column 3: Company */}
-        <div>
-          <h4 className="text-sm font-semibold text-white mb-5">Company</h4>
-          <ul className="space-y-3">
-            {COMPANY_LINKS.map((l) => (
-              <li key={l}>
-                <a
-                  href="#"
-                  className="text-sm text-slate-400 hover:text-white transition-colors"
-                >
-                  {l}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        {/* Column 4: Legal */}
-        <div>
-          <h4 className="text-sm font-semibold text-white mb-5">Legal</h4>
-          <ul className="space-y-3">
-            {LEGAL_LINKS.map((l) => (
-              <li key={l}>
-                <a
-                  href="#"
-                  className="text-sm text-slate-400 hover:text-white transition-colors"
-                >
-                  {l}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </div>
       </div>
-    </div>
-
-    {/* Bottom bar */}
-    <div className="border-t border-white/5">
-      <div className="max-w-7xl mx-auto px-6 py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
-        <p className="text-sm text-slate-500">
-          © 2026 FinFlow Technologies Pvt Ltd. All rights reserved.
-        </p>
-        <p className="text-sm text-slate-500">Made with ♥ in India 🇮🇳</p>
-      </div>
-    </div>
-  </footer>
-)
+    </footer>
+  )
+}
